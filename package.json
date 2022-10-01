@@ -4,11 +4,11 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "start": "node ./public",
+    "start": "node ./public/src",
     "start:nodemon": "nodemon ./public",
-    "build": "tsc",
-    "build:watch": "tsc --watch",
-    "dev": "concurrently \"npm run start:nodemon\" \"npm run build:watch\"",
+    "build": "tsc --project tsconfig.json",
+    "build:watch": "tsc --watch --project tsconfig.json",
+    "dev": "concurrently \"npm run build:watch\" \"npm run start:nodemon\"",
     "test": "jest"
   },
   "repository": {
