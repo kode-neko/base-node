@@ -1,4 +1,4 @@
-import exampleFix from '../../../../fixtures/example.json';
+import { exampleFix } from '@fixtures';
 import { IExample } from '../../../model';
 import IMongoConfig from './IMongoConfig';
 
