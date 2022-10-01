@@ -1,0 +1,12 @@
+{
+  "workbench.iconTheme": "material-icon-theme",
+  "workbench.colorCustomizations": {
+    "titleBar.activeForeground": "#ffffff",
+    "titleBar.inactiveForeground": "#ffffff",
+    "titleBar.activeBackground": "#0D6EFD",
+    "titleBar.inactiveBackground": "#0D6EFD",
+    "statusBar.background": "#0D6EFD"
+  },
+  "editor.semanticTokenColorCustomizations": {},
+  "eslint.format.enable": true,
+}
