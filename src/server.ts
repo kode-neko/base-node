@@ -5,7 +5,6 @@ import i18nextHttpMiddleware from 'i18next-http-middleware';
 import hbs from 'hbs';
 import { exampleRouer } from './routes';
 import i18Nexthelper from './utils/hbs/i18nextHelper';
-import { i18nextConfig } from './utils';
 
 const app = express();
 
@@ -18,7 +17,6 @@ app.set('views', path.join(__dirname, '../views'));
 hbs.registerHelper('t', i18Nexthelper);
 
 // i18n
-i18nextConfig();
 app.use(i18nextHttpMiddleware.handle(i18next, {}));
 
 // assets

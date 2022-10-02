@@ -10,7 +10,6 @@ const i18next_http_middleware_1 = __importDefault(require("i18next-http-middlewa
 const hbs_1 = __importDefault(require("hbs"));
 const routes_1 = require("./routes");
 const i18nextHelper_1 = __importDefault(require("./utils/hbs/i18nextHelper"));
-const utils_1 = require("./utils");
 const app = (0, express_1.default)();
 // json body
 app.use(express_1.default.json());
@@ -19,7 +18,6 @@ app.set('view engine', 'hbs');
 app.set('views', path_1.default.join(__dirname, '../views'));
 hbs_1.default.registerHelper('t', i18nextHelper_1.default);
 // i18n
-(0, utils_1.i18nextConfig)();
 app.use(i18next_http_middleware_1.default.handle(i18next_1.default, {}));
 // assets
 app.use('/assets/css', express_1.default.static(path_1.default.join(__dirname, '../../node_modules/bootstrap/dist/css')));
