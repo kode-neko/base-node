@@ -11,9 +11,8 @@ function getExample(req, res) {
 }
 exports.getExample = getExample;
 function getChangeLang(req, res) {
-    const { lang } = req.params;
-    i18next_1.default.changeLanguage(lang);
-    res.redirect('/example/tpl');
+    const { lang } = req.query;
+    i18next_1.default.changeLanguage(lang).then(() => res.redirect('/example/tpl'));
 }
 exports.getChangeLang = getChangeLang;
 function getTemplate(req, res) {

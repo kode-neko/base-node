@@ -8,9 +8,8 @@ function getExample(req: Request, res: Response): void {
 }
 
 function getChangeLang(req: Request, res: Response): void {
-  const { lang } = req.params;
-  i18next.changeLanguage(lang);
-  res.redirect('/example/tpl');
+  const { lang } = req.query;
+  i18next.changeLanguage(lang as string).then(() => res.redirect('/example/tpl'));
 }
 
 function getTemplate(req: Request, res: Response): void {
