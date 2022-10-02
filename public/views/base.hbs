@@ -1,13 +1,12 @@
-{{% BLOCKS }}
-<!DOCTYPE html>
 <html lang="en">
   <html>
     <head>
       <meta charset="UTF-8" />
       <meta http-equiv="X-UA-Compatible" content="IE=edge" />
       <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-      <title>{{ title }}</title>
+      <title>{{t "title.main"}}</title>
       <link rel="stylesheet" href="/assets/css/bootstrap.min.css" />
+      <script src="/assets/js/bootstrap.bundle.min.js"></script>
     </head>
     <body>
       <main>
@@ -25,7 +24,7 @@
                 viewBox="0 0 118 94"
                 role="img"
               >
-                <title>Bootstrap</title>
+                <title>{{t "title.main"}}</title>
                 <path
                   fill-rule="evenodd"
                   clip-rule="evenodd"
@@ -33,18 +32,31 @@
                   fill="currentColor"
                 ></path>
               </svg>
-              <span class="fs-4">Jumbotron example</span>
+              <span class="fs-4">{{t "title.main"}}</span>
             </a>
+            <div class="dropdown">
+              <a
+                class="btn btn-secondary dropdown-toggle"
+                href="#"
+                role="button"
+                data-bs-toggle="dropdown"
+                aria-expanded="false"
+              >
+                Dropdown link
+              </a>
+
+              <ul class="dropdown-menu">
+                <li><a class="dropdown-item" href="/example/changeLang?lang=es">🇪🇸</a></li>
+                <li><a class="dropdown-item" href="/example/changeLang?lang=en">🇬🇧</a></li>
+              </ul>
+            </div>
           </header>
 
           <div class="p-5 mb-4 bg-light rounded-3">
             <div class="container-fluid py-5">
-              <h1 class="display-5 fw-bold">Custom jumbotron</h1>
+              <h1 class="display-5 fw-bold">{{t "title.main"}}</h1>
               <p class="col-md-8 fs-4">
-                Using a series of utilities, you can create this jumbotron, just
-                like the one in previous versions of Bootstrap. Check out the
-                examples below for how you can remix and restyle it to your
-                liking.
+                {{t "desc.main"}}
               </p>
               <button class="btn btn-primary btn-lg" type="button">
                 Example button
@@ -55,12 +67,8 @@
           <div class="row align-items-md-stretch">
             <div class="col-md-6">
               <div class="h-100 p-5 text-bg-dark rounded-3">
-                <h2>Change the background</h2>
-                <p>
-                  Swap the background-color utility and add a `.text-*` color
-                  utility to mix up the jumbotron look. Then, mix and match with
-                  additional component themes and more.
-                </p>
+                <h2>{{t "title.dev"}}</h2>
+                <p>{{t "desc.dev"}}</p>
                 <button class="btn btn-outline-light" type="button">
                   Example button
                 </button>
@@ -68,13 +76,8 @@
             </div>
             <div class="col-md-6">
               <div class="h-100 p-5 bg-light border rounded-3">
-                <h2>Add borders</h2>
-                <p>
-                  Or, keep it light and add a border for some added definition
-                  to the boundaries of your content. Be sure to look under the
-                  hood at the source HTML here as we've adjusted the alignment
-                  and sizing of both column's content for equal-height.
-                </p>
+                <h2>{{t "title.admin"}}</h2>
+                <p>{{t "desc.admin"}}</p>
                 <button class="btn btn-outline-secondary" type="button">
                   Example button
                 </button>
