@@ -12,6 +12,7 @@ const app = express();
 app.use(express.json());
 
 // template
+hbs.registerPartials(path.join(__dirname, '../views/partials'));
 app.set('view engine', 'hbs');
 app.set('views', path.join(__dirname, '../views'));
 hbs.registerHelper('t', i18Nexthelper);
@@ -20,8 +21,10 @@ hbs.registerHelper('t', i18Nexthelper);
 app.use(i18nextHttpMiddleware.handle(i18next, {}));
 
 // assets
-app.use('/assets/css', express.static(path.join(__dirname, '../../node_modules/bootstrap/dist/css')));
-app.use('/assets/js', express.static(path.join(__dirname, '../../node_modules/bootstrap/dist/js')));
+app.use('/assets/bootstrap/css', express.static(path.join(__dirname, '../../node_modules/bootstrap/dist/css')));
+app.use('/assets/bootstrap-icons/css', express.static(path.join(__dirname, '../../node_modules/bootstrap-icons/font')));
+app.use('/assets/bootstrap/js', express.static(path.join(__dirname, '../../node_modules/bootstrap/dist/js')));
+app.use('/assets/pics', express.static(path.join(__dirname, '../assets/pics')));
 
 // routes
 app.use('/example', exampleRouer);

@@ -4,10 +4,11 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "start": "node ./public/src -m prod",
+    "start": "npm run build && npm run prod",
     "start:nodemon": "nodemon ./public/src -m dev",
     "build": "tsc --project tsconfig.json",
     "build:watch": "tsc --watch --project tsconfig.json",
+    "prod": "node ./public/src -m prod",
     "dev": "concurrently \"npm run build:watch\" \"npm run start:nodemon\"",
     "test": "jest"
   },
@@ -53,6 +54,7 @@
     "@types/mongoose": "^5.11.97",
     "@types/node": "^18.7.23",
     "bootstrap": "^5.2.1",
+    "bootstrap-icons": "^1.9.1",
     "dotenv": "^16.0.3",
     "express": "^4.18.1",
     "handlebars": "^4.7.7",

@@ -16,6 +16,6 @@ function getChangeLang(req, res) {
 }
 exports.getChangeLang = getChangeLang;
 function getTemplate(req, res) {
-    res.render('base', { title: 'titulo', content: 'contenido' });
+    res.render('main', { title: 'titulo', content: 'contenido' });
 }
 exports.getTemplate = getTemplate;

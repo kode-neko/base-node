@@ -13,7 +13,7 @@ function getChangeLang(req: Request, res: Response): void {
 }
 
 function getTemplate(req: Request, res: Response): void {
-  res.render('base', { title: 'titulo', content: 'contenido' });
+  res.render('main', { title: 'titulo', content: 'contenido' });
 }
 
 export {

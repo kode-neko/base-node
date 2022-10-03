@@ -1,0 +1,34 @@
+<header class="row pb-3 pt-3 bg-dark border-bottom">
+  <div class="col-6">
+    <a
+      href="/"
+      class="d-flex align-items-center text-light text-decoration-none"
+    >
+      <i class="bi bi-journals me-2" style="font-size: 42px"></i>
+      <span class="fs-4">{{t "title.main"}}</span>
+    </a>
+  </div>
+
+  <div class="col-6 text-end">
+    <div class="dropdown">
+      <a
+        class="btn btn-light dropdown-toggle"
+        href="#"
+        role="button"
+        data-bs-toggle="dropdown"
+        aria-expanded="false"
+      >
+        <i class="bi bi-globe2 me-2"></i> {{t "btn.change-lang"}}
+      </a>
+      <ul class="dropdown-menu">
+        <li><a class="dropdown-item" href="/example/changeLang?lang=es">{{t
+              "labels.spanish"
+            }}</a></li>
+        <li><a class="dropdown-item" href="/example/changeLang?lang=en">{{t
+              "labels.english"
+            }}</a></li>
+      </ul>
+    </div>
+  </div>
+
+</header>
