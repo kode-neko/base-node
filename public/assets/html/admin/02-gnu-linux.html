@@ -1,0 +1,609 @@
+<!doctype html>
+<html>
+<head>
+<meta charset='UTF-8'><meta name='viewport' content='width=device-width initial-scale=1'>
+
+<link href='https://fonts.loli.net/css?family=Open+Sans:400italic,700italic,700,400&subset=latin,latin-ext' rel='stylesheet' type='text/css' /><style type='text/css'>html {overflow-x: initial !important;}:root { --bg-color:#ffffff; --text-color:#333333; --select-text-bg-color:#B5D6FC; --select-text-font-color:auto; --monospace:"Lucida Console",Consolas,"Courier",monospace; --title-bar-height:20px; }
+.mac-os-11 { --title-bar-height:28px; }
+html { font-size: 14px; background-color: var(--bg-color); color: var(--text-color); font-family: "Helvetica Neue", Helvetica, Arial, sans-serif; -webkit-font-smoothing: antialiased; }
+body { margin: 0px; padding: 0px; height: auto; inset: 0px; font-size: 1rem; line-height: 1.42857; overflow-x: hidden; background: inherit; tab-size: 4; }
+iframe { margin: auto; }
+a.url { word-break: break-all; }
+a:active, a:hover { outline: 0px; }
+.in-text-selection, ::selection { text-shadow: none; background: var(--select-text-bg-color); color: var(--select-text-font-color); }
+#write { margin: 0px auto; height: auto; width: inherit; word-break: normal; overflow-wrap: break-word; position: relative; white-space: normal; overflow-x: visible; padding-top: 36px; }
+#write.first-line-indent p { text-indent: 2em; }
+#write.first-line-indent li p, #write.first-line-indent p * { text-indent: 0px; }
+#write.first-line-indent li { margin-left: 2em; }
+.for-image #write { padding-left: 8px; padding-right: 8px; }
+body.typora-export { padding-left: 30px; padding-right: 30px; }
+.typora-export .footnote-line, .typora-export li, .typora-export p { white-space: pre-wrap; }
+.typora-export .task-list-item input { pointer-events: none; }
+@media screen and (max-width: 500px) {
+  body.typora-export { padding-left: 0px; padding-right: 0px; }
+  #write { padding-left: 20px; padding-right: 20px; }
+  .CodeMirror-sizer { margin-left: 0px !important; }
+  .CodeMirror-gutters { display: none !important; }
+}
+#write li > figure:last-child { margin-bottom: 0.5rem; }
+#write ol, #write ul { position: relative; }
+img { max-width: 100%; vertical-align: middle; image-orientation: from-image; }
+button, input, select, textarea { color: inherit; font: inherit; }
+input[type="checkbox"], input[type="radio"] { line-height: normal; padding: 0px; }
+*, ::after, ::before { box-sizing: border-box; }
+#write h1, #write h2, #write h3, #write h4, #write h5, #write h6, #write p, #write pre { width: inherit; }
+#write h1, #write h2, #write h3, #write h4, #write h5, #write h6, #write p { position: relative; }
+p { line-height: inherit; }
+h1, h2, h3, h4, h5, h6 { break-after: avoid-page; break-inside: avoid; orphans: 4; }
+p { orphans: 4; }
+h1 { font-size: 2rem; }
+h2 { font-size: 1.8rem; }
+h3 { font-size: 1.6rem; }
+h4 { font-size: 1.4rem; }
+h5 { font-size: 1.2rem; }
+h6 { font-size: 1rem; }
+.md-math-block, .md-rawblock, h1, h2, h3, h4, h5, h6, p { margin-top: 1rem; margin-bottom: 1rem; }
+.hidden { display: none; }
+.md-blockmeta { color: rgb(204, 204, 204); font-weight: 700; font-style: italic; }
+a { cursor: pointer; }
+sup.md-footnote { padding: 2px 4px; background-color: rgba(238, 238, 238, 0.7); color: rgb(85, 85, 85); border-radius: 4px; cursor: pointer; }
+sup.md-footnote a, sup.md-footnote a:hover { color: inherit; text-transform: inherit; text-decoration: inherit; }
+#write input[type="checkbox"] { cursor: pointer; width: inherit; height: inherit; }
+figure { overflow-x: auto; margin: 1.2em 0px; max-width: calc(100% + 16px); padding: 0px; }
+figure > table { margin: 0px; }
+tr { break-inside: avoid; break-after: auto; }
+thead { display: table-header-group; }
+table { border-collapse: collapse; border-spacing: 0px; width: 100%; overflow: auto; break-inside: auto; text-align: left; }
+table.md-table td { min-width: 32px; }
+.CodeMirror-gutters { border-right: 0px; background-color: inherit; }
+.CodeMirror-linenumber { user-select: none; }
+.CodeMirror { text-align: left; }
+.CodeMirror-placeholder { opacity: 0.3; }
+.CodeMirror pre { padding: 0px 4px; }
+.CodeMirror-lines { padding: 0px; }
+div.hr:focus { cursor: none; }
+#write pre { white-space: pre-wrap; }
+#write.fences-no-line-wrapping pre { white-space: pre; }
+#write pre.ty-contain-cm { white-space: normal; }
+.CodeMirror-gutters { margin-right: 4px; }
+.md-fences { font-size: 0.9rem; display: block; break-inside: avoid; text-align: left; overflow: visible; white-space: pre; background: inherit; position: relative !important; }
+.md-fences-adv-panel { width: 100%; margin-top: 10px; text-align: center; padding-top: 0px; padding-bottom: 8px; overflow-x: auto; }
+#write .md-fences.mock-cm { white-space: pre-wrap; }
+.md-fences.md-fences-with-lineno { padding-left: 0px; }
+#write.fences-no-line-wrapping .md-fences.mock-cm { white-space: pre; overflow-x: auto; }
+.md-fences.mock-cm.md-fences-with-lineno { padding-left: 8px; }
+.CodeMirror-line, twitterwidget { break-inside: avoid; }
+.footnotes { opacity: 0.8; font-size: 0.9rem; margin-top: 1em; margin-bottom: 1em; }
+.footnotes + .footnotes { margin-top: 0px; }
+.md-reset { margin: 0px; padding: 0px; border: 0px; outline: 0px; vertical-align: top; background: 0px 0px; text-decoration: none; text-shadow: none; float: none; position: static; width: auto; height: auto; white-space: nowrap; cursor: inherit; -webkit-tap-highlight-color: transparent; line-height: normal; font-weight: 400; text-align: left; box-sizing: content-box; direction: ltr; }
+li div { padding-top: 0px; }
+blockquote { margin: 1rem 0px; }
+li .mathjax-block, li p { margin: 0.5rem 0px; }
+li blockquote { margin: 1rem 0px; }
+li { margin: 0px; position: relative; }
+blockquote > :last-child { margin-bottom: 0px; }
+blockquote > :first-child, li > :first-child { margin-top: 0px; }
+.footnotes-area { color: rgb(136, 136, 136); margin-top: 0.714rem; padding-bottom: 0.143rem; white-space: normal; }
+#write .footnote-line { white-space: pre-wrap; }
+@media print {
+  body, html { border: 1px solid transparent; height: 99%; break-after: avoid; break-before: avoid; font-variant-ligatures: no-common-ligatures; }
+  #write { margin-top: 0px; padding-top: 0px; border-color: transparent !important; }
+  .typora-export * { -webkit-print-color-adjust: exact; }
+  .typora-export #write { break-after: avoid; }
+  .typora-export #write::after { height: 0px; }
+  .is-mac table { break-inside: avoid; }
+  .typora-export-show-outline .typora-export-sidebar { display: none; }
+}
+.footnote-line { margin-top: 0.714em; font-size: 0.7em; }
+a img, img a { cursor: pointer; }
+pre.md-meta-block { font-size: 0.8rem; min-height: 0.8rem; white-space: pre-wrap; background: rgb(204, 204, 204); display: block; overflow-x: hidden; }
+p > .md-image:only-child:not(.md-img-error) img, p > img:only-child { display: block; margin: auto; }
+#write.first-line-indent p > .md-image:only-child:not(.md-img-error) img { left: -2em; position: relative; }
+p > .md-image:only-child { display: inline-block; width: 100%; }
+#write .MathJax_Display { margin: 0.8em 0px 0px; }
+.md-math-block { width: 100%; }
+.md-math-block:not(:empty)::after { display: none; }
+.MathJax_ref { fill: currentcolor; }
+[contenteditable="true"]:active, [contenteditable="true"]:focus, [contenteditable="false"]:active, [contenteditable="false"]:focus { outline: 0px; box-shadow: none; }
+.md-task-list-item { position: relative; list-style-type: none; }
+.task-list-item.md-task-list-item { padding-left: 0px; }
+.md-task-list-item > input { position: absolute; top: 0px; left: 0px; margin-left: -1.2em; margin-top: calc(1em - 10px); border: none; }
+.math { font-size: 1rem; }
+.md-toc { min-height: 3.58rem; position: relative; font-size: 0.9rem; border-radius: 10px; }
+.md-toc-content { position: relative; margin-left: 0px; }
+.md-toc-content::after, .md-toc::after { display: none; }
+.md-toc-item { display: block; color: rgb(65, 131, 196); }
+.md-toc-item a { text-decoration: none; }
+.md-toc-inner:hover { text-decoration: underline; }
+.md-toc-inner { display: inline-block; cursor: pointer; }
+.md-toc-h1 .md-toc-inner { margin-left: 0px; font-weight: 700; }
+.md-toc-h2 .md-toc-inner { margin-left: 2em; }
+.md-toc-h3 .md-toc-inner { margin-left: 4em; }
+.md-toc-h4 .md-toc-inner { margin-left: 6em; }
+.md-toc-h5 .md-toc-inner { margin-left: 8em; }
+.md-toc-h6 .md-toc-inner { margin-left: 10em; }
+@media screen and (max-width: 48em) {
+  .md-toc-h3 .md-toc-inner { margin-left: 3.5em; }
+  .md-toc-h4 .md-toc-inner { margin-left: 5em; }
+  .md-toc-h5 .md-toc-inner { margin-left: 6.5em; }
+  .md-toc-h6 .md-toc-inner { margin-left: 8em; }
+}
+a.md-toc-inner { font-size: inherit; font-style: inherit; font-weight: inherit; line-height: inherit; }
+.footnote-line a:not(.reversefootnote) { color: inherit; }
+.md-attr { display: none; }
+.md-fn-count::after { content: "."; }
+code, pre, samp, tt { font-family: var(--monospace); }
+kbd { margin: 0px 0.1em; padding: 0.1em 0.6em; font-size: 0.8em; color: rgb(36, 39, 41); background: rgb(255, 255, 255); border: 1px solid rgb(173, 179, 185); border-radius: 3px; box-shadow: rgba(12, 13, 14, 0.2) 0px 1px 0px, rgb(255, 255, 255) 0px 0px 0px 2px inset; white-space: nowrap; vertical-align: middle; }
+.md-comment { color: rgb(162, 127, 3); opacity: 0.6; font-family: var(--monospace); }
+code { text-align: left; vertical-align: initial; }
+a.md-print-anchor { white-space: pre !important; border-width: initial !important; border-style: none !important; border-color: initial !important; display: inline-block !important; position: absolute !important; width: 1px !important; right: 0px !important; outline: 0px !important; background: 0px 0px !important; text-decoration: initial !important; text-shadow: initial !important; }
+.os-windows.monocolor-emoji .md-emoji { font-family: "Segoe UI Symbol", sans-serif; }
+.md-diagram-panel > svg { max-width: 100%; }
+[lang="flow"] svg, [lang="mermaid"] svg { max-width: 100%; height: auto; }
+[lang="mermaid"] .node text { font-size: 1rem; }
+table tr th { border-bottom: 0px; }
+video { max-width: 100%; display: block; margin: 0px auto; }
+iframe { max-width: 100%; width: 100%; border: none; }
+.highlight td, .highlight tr { border: 0px; }
+mark { background: rgb(255, 255, 0); color: rgb(0, 0, 0); }
+.md-html-inline .md-plain, .md-html-inline strong, mark .md-inline-math, mark strong { color: inherit; }
+.md-expand mark .md-meta { opacity: 0.3 !important; }
+mark .md-meta { color: rgb(0, 0, 0); }
+@media print {
+  .typora-export h1, .typora-export h2, .typora-export h3, .typora-export h4, .typora-export h5, .typora-export h6 { break-inside: avoid; }
+}
+.md-diagram-panel .messageText { stroke: none !important; }
+.md-diagram-panel .start-state { fill: var(--node-fill); }
+.md-diagram-panel .edgeLabel rect { opacity: 1 !important; }
+.md-fences.md-fences-math { font-size: 1em; }
+.md-fences-advanced:not(.md-focus) { padding: 0px; white-space: nowrap; border: 0px; }
+.md-fences-advanced:not(.md-focus) { background: inherit; }
+.typora-export-show-outline .typora-export-content { max-width: 1440px; margin: auto; display: flex; flex-direction: row; }
+.typora-export-sidebar { width: 300px; font-size: 0.8rem; margin-top: 80px; margin-right: 18px; }
+.typora-export-show-outline #write { --webkit-flex:2; flex: 2 1 0%; }
+.typora-export-sidebar .outline-content { position: fixed; top: 0px; max-height: 100%; overflow: hidden auto; padding-bottom: 30px; padding-top: 60px; width: 300px; }
+@media screen and (max-width: 1024px) {
+  .typora-export-sidebar, .typora-export-sidebar .outline-content { width: 240px; }
+}
+@media screen and (max-width: 800px) {
+  .typora-export-sidebar { display: none; }
+}
+.outline-content li, .outline-content ul { margin-left: 0px; margin-right: 0px; padding-left: 0px; padding-right: 0px; list-style: none; }
+.outline-content ul { margin-top: 0px; margin-bottom: 0px; }
+.outline-content strong { font-weight: 400; }
+.outline-expander { width: 1rem; height: 1.42857rem; position: relative; display: table-cell; vertical-align: middle; cursor: pointer; padding-left: 4px; }
+.outline-expander::before { content: ""; position: relative; font-family: Ionicons; display: inline-block; font-size: 8px; vertical-align: middle; }
+.outline-item { padding-top: 3px; padding-bottom: 3px; cursor: pointer; }
+.outline-expander:hover::before { content: ""; }
+.outline-h1 > .outline-item { padding-left: 0px; }
+.outline-h2 > .outline-item { padding-left: 1em; }
+.outline-h3 > .outline-item { padding-left: 2em; }
+.outline-h4 > .outline-item { padding-left: 3em; }
+.outline-h5 > .outline-item { padding-left: 4em; }
+.outline-h6 > .outline-item { padding-left: 5em; }
+.outline-label { cursor: pointer; display: table-cell; vertical-align: middle; text-decoration: none; color: inherit; }
+.outline-label:hover { text-decoration: underline; }
+.outline-item:hover { border-color: rgb(245, 245, 245); background-color: var(--item-hover-bg-color); }
+.outline-item:hover { margin-left: -28px; margin-right: -28px; border-left: 28px solid transparent; border-right: 28px solid transparent; }
+.outline-item-single .outline-expander::before, .outline-item-single .outline-expander:hover::before { display: none; }
+.outline-item-open > .outline-item > .outline-expander::before { content: ""; }
+.outline-children { display: none; }
+.info-panel-tab-wrapper { display: none; }
+.outline-item-open > .outline-children { display: block; }
+.typora-export .outline-item { padding-top: 1px; padding-bottom: 1px; }
+.typora-export .outline-item:hover { margin-right: -8px; border-right: 8px solid transparent; }
+.typora-export .outline-expander::before { content: "+"; font-family: inherit; top: -1px; }
+.typora-export .outline-expander:hover::before, .typora-export .outline-item-open > .outline-item > .outline-expander::before { content: "−"; }
+.typora-export-collapse-outline .outline-children { display: none; }
+.typora-export-collapse-outline .outline-item-open > .outline-children, .typora-export-no-collapse-outline .outline-children { display: block; }
+.typora-export-no-collapse-outline .outline-expander::before { content: "" !important; }
+.typora-export-show-outline .outline-item-active > .outline-item .outline-label { font-weight: 700; }
+.md-inline-math-container mjx-container { zoom: 0.95; }
+
+
+:root {
+    --side-bar-bg-color: #fafafa;
+    --control-text-color: #777;
+}
+
+@include-when-export url(https://fonts.loli.net/css?family=Open+Sans:400italic,700italic,700,400&subset=latin,latin-ext);
+
+/* open-sans-regular - latin-ext_latin */
+  /* open-sans-italic - latin-ext_latin */
+    /* open-sans-700 - latin-ext_latin */
+    /* open-sans-700italic - latin-ext_latin */
+  html {
+    font-size: 16px;
+    -webkit-font-smoothing: antialiased;
+}
+
+body {
+    font-family: "Open Sans","Clear Sans", "Helvetica Neue", Helvetica, Arial, 'Segoe UI Emoji', sans-serif;
+    color: rgb(51, 51, 51);
+    line-height: 1.6;
+}
+
+#write {
+    max-width: 860px;
+  	margin: 0 auto;
+  	padding: 30px;
+    padding-bottom: 100px;
+}
+
+@media only screen and (min-width: 1400px) {
+	#write {
+		max-width: 1024px;
+	}
+}
+
+@media only screen and (min-width: 1800px) {
+	#write {
+		max-width: 1200px;
+	}
+}
+
+#write > ul:first-child,
+#write > ol:first-child{
+    margin-top: 30px;
+}
+
+a {
+    color: #4183C4;
+}
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+    position: relative;
+    margin-top: 1rem;
+    margin-bottom: 1rem;
+    font-weight: bold;
+    line-height: 1.4;
+    cursor: text;
+}
+h1:hover a.anchor,
+h2:hover a.anchor,
+h3:hover a.anchor,
+h4:hover a.anchor,
+h5:hover a.anchor,
+h6:hover a.anchor {
+    text-decoration: none;
+}
+h1 tt,
+h1 code {
+    font-size: inherit;
+}
+h2 tt,
+h2 code {
+    font-size: inherit;
+}
+h3 tt,
+h3 code {
+    font-size: inherit;
+}
+h4 tt,
+h4 code {
+    font-size: inherit;
+}
+h5 tt,
+h5 code {
+    font-size: inherit;
+}
+h6 tt,
+h6 code {
+    font-size: inherit;
+}
+h1 {
+    font-size: 2.25em;
+    line-height: 1.2;
+    border-bottom: 1px solid #eee;
+}
+h2 {
+    font-size: 1.75em;
+    line-height: 1.225;
+    border-bottom: 1px solid #eee;
+}
+
+/*@media print {
+    .typora-export h1,
+    .typora-export h2 {
+        border-bottom: none;
+        padding-bottom: initial;
+    }
+
+    .typora-export h1::after,
+    .typora-export h2::after {
+        content: "";
+        display: block;
+        height: 100px;
+        margin-top: -96px;
+        border-top: 1px solid #eee;
+    }
+}*/
+
+h3 {
+    font-size: 1.5em;
+    line-height: 1.43;
+}
+h4 {
+    font-size: 1.25em;
+}
+h5 {
+    font-size: 1em;
+}
+h6 {
+   font-size: 1em;
+    color: #777;
+}
+p,
+blockquote,
+ul,
+ol,
+dl,
+table{
+    margin: 0.8em 0;
+}
+li>ol,
+li>ul {
+    margin: 0 0;
+}
+hr {
+    height: 2px;
+    padding: 0;
+    margin: 16px 0;
+    background-color: #e7e7e7;
+    border: 0 none;
+    overflow: hidden;
+    box-sizing: content-box;
+}
+
+li p.first {
+    display: inline-block;
+}
+ul,
+ol {
+    padding-left: 30px;
+}
+ul:first-child,
+ol:first-child {
+    margin-top: 0;
+}
+ul:last-child,
+ol:last-child {
+    margin-bottom: 0;
+}
+blockquote {
+    border-left: 4px solid #dfe2e5;
+    padding: 0 15px;
+    color: #777777;
+}
+blockquote blockquote {
+    padding-right: 0;
+}
+table {
+    padding: 0;
+    word-break: initial;
+}
+table tr {
+    border: 1px solid #dfe2e5;
+    margin: 0;
+    padding: 0;
+}
+table tr:nth-child(2n),
+thead {
+    background-color: #f8f8f8;
+}
+table th {
+    font-weight: bold;
+    border: 1px solid #dfe2e5;
+    border-bottom: 0;
+    margin: 0;
+    padding: 6px 13px;
+}
+table td {
+    border: 1px solid #dfe2e5;
+    margin: 0;
+    padding: 6px 13px;
+}
+table th:first-child,
+table td:first-child {
+    margin-top: 0;
+}
+table th:last-child,
+table td:last-child {
+    margin-bottom: 0;
+}
+
+.CodeMirror-lines {
+    padding-left: 4px;
+}
+
+.code-tooltip {
+    box-shadow: 0 1px 1px 0 rgba(0,28,36,.3);
+    border-top: 1px solid #eef2f2;
+}
+
+.md-fences,
+code,
+tt {
+    border: 1px solid #e7eaed;
+    background-color: #f8f8f8;
+    border-radius: 3px;
+    padding: 0;
+    padding: 2px 4px 0px 4px;
+    font-size: 0.9em;
+}
+
+code {
+    background-color: #f3f4f4;
+    padding: 0 2px 0 2px;
+}
+
+.md-fences {
+    margin-bottom: 15px;
+    margin-top: 15px;
+    padding-top: 8px;
+    padding-bottom: 6px;
+}
+
+
+.md-task-list-item > input {
+  margin-left: -1.3em;
+}
+
+@media print {
+    html {
+        font-size: 13px;
+    }
+    table,
+    pre {
+        page-break-inside: avoid;
+    }
+    pre {
+        word-wrap: break-word;
+    }
+}
+
+.md-fences {
+	background-color: #f8f8f8;
+}
+#write pre.md-meta-block {
+	padding: 1rem;
+    font-size: 85%;
+    line-height: 1.45;
+    background-color: #f7f7f7;
+    border: 0;
+    border-radius: 3px;
+    color: #777777;
+    margin-top: 0 !important;
+}
+
+.mathjax-block>.code-tooltip {
+	bottom: .375rem;
+}
+
+.md-mathjax-midline {
+    background: #fafafa;
+}
+
+#write>h3.md-focus:before{
+	left: -1.5625rem;
+	top: .375rem;
+}
+#write>h4.md-focus:before{
+	left: -1.5625rem;
+	top: .285714286rem;
+}
+#write>h5.md-focus:before{
+	left: -1.5625rem;
+	top: .285714286rem;
+}
+#write>h6.md-focus:before{
+	left: -1.5625rem;
+	top: .285714286rem;
+}
+.md-image>.md-meta {
+    /*border: 1px solid #ddd;*/
+    border-radius: 3px;
+    padding: 2px 0px 0px 4px;
+    font-size: 0.9em;
+    color: inherit;
+}
+
+.md-tag {
+    color: #a7a7a7;
+    opacity: 1;
+}
+
+.md-toc { 
+    margin-top:20px;
+    padding-bottom:20px;
+}
+
+.sidebar-tabs {
+    border-bottom: none;
+}
+
+#typora-quick-open {
+    border: 1px solid #ddd;
+    background-color: #f8f8f8;
+}
+
+#typora-quick-open-item {
+    background-color: #FAFAFA;
+    border-color: #FEFEFE #e5e5e5 #e5e5e5 #eee;
+    border-style: solid;
+    border-width: 1px;
+}
+
+/** focus mode */
+.on-focus-mode blockquote {
+    border-left-color: rgba(85, 85, 85, 0.12);
+}
+
+header, .context-menu, .megamenu-content, footer{
+    font-family: "Segoe UI", "Arial", sans-serif;
+}
+
+.file-node-content:hover .file-node-icon,
+.file-node-content:hover .file-node-open-state{
+    visibility: visible;
+}
+
+.mac-seamless-mode #typora-sidebar {
+    background-color: #fafafa;
+    background-color: var(--side-bar-bg-color);
+}
+
+.md-lang {
+    color: #b4654d;
+}
+
+/*.html-for-mac {
+    --item-hover-bg-color: #E6F0FE;
+}*/
+
+#md-notification .btn {
+    border: 0;
+}
+
+.dropdown-menu .divider {
+    border-color: #e5e5e5;
+    opacity: 0.4;
+}
+
+.ty-preferences .window-content {
+    background-color: #fafafa;
+}
+
+.ty-preferences .nav-group-item.active {
+    color: white;
+    background: #999;
+}
+
+.menu-item-container a.menu-style-btn {
+    background-color: #f5f8fa;
+    background-image: linear-gradient( 180deg , hsla(0, 0%, 100%, 0.8), hsla(0, 0%, 100%, 0)); 
+}
+
+
+
+</style><title>02-gnu-linux</title>
+</head>
+<body class='typora-export'><div class='typora-export-content'>
+<div id='write'  class=''><div class='md-toc' mdtype='toc'><p class="md-toc-content" role="list"><span role="listitem" class="md-toc-item md-toc-h1" data-ref="n2"><a class="md-toc-inner" href="#tema-02-gnulinux">Tema 02: GNU/Linux</a></span><span role="listitem" class="md-toc-item md-toc-h2" data-ref="n4"><a class="md-toc-inner" href="#1-introducción">1. Introducción</a></span><span role="listitem" class="md-toc-item md-toc-h2" data-ref="n9"><a class="md-toc-inner" href="#2-historia">2. Historia</a></span><span role="listitem" class="md-toc-item md-toc-h3" data-ref="n12"><a class="md-toc-inner" href="#21-compartir-y-aprender">2.1. Compartir y Aprender</a></span><span role="listitem" class="md-toc-item md-toc-h3" data-ref="n18"><a class="md-toc-inner" href="#22-software-privativo">2.2. Software Privativo</a></span><span role="listitem" class="md-toc-item md-toc-h3" data-ref="n23"><a class="md-toc-inner" href="#23-usenet">2.3. Usenet</a></span><span role="listitem" class="md-toc-item md-toc-h3" data-ref="n28"><a class="md-toc-inner" href="#24-unix">2.4. UNIX</a></span><span role="listitem" class="md-toc-item md-toc-h3" data-ref="n38"><a class="md-toc-inner" href="#25-proyecto-gnu">2.5. Proyecto GNU</a></span><span role="listitem" class="md-toc-item md-toc-h3" data-ref="n45"><a class="md-toc-inner" href="#26-linux">2.6. Linux</a></span><span role="listitem" class="md-toc-item md-toc-h3" data-ref="n51"><a class="md-toc-inner" href="#27-software-libre">2.7. Software Libre</a></span><span role="listitem" class="md-toc-item md-toc-h3" data-ref="n66"><a class="md-toc-inner" href="#28-open-source">2.8. Open Source</a></span><span role="listitem" class="md-toc-item md-toc-h2" data-ref="n70"><a class="md-toc-inner" href="#3-distribuciones">3. Distribuciones</a></span><span role="listitem" class="md-toc-item md-toc-h2" data-ref="n83"><a class="md-toc-inner" href="#4-¿por-qué-linux">4. ¿Por qué Linux?</a></span><span role="listitem" class="md-toc-item md-toc-h3" data-ref="n84"><a class="md-toc-inner" href="#ventajas">Ventajas</a></span><span role="listitem" class="md-toc-item md-toc-h3" data-ref="n103"><a class="md-toc-inner" href="#contras">Contras</a></span><span role="listitem" class="md-toc-item md-toc-h3" data-ref="n116"><a class="md-toc-inner" href="#conclusión">Conclusión</a></span><span role="listitem" class="md-toc-item md-toc-h2" data-ref="n119"><a class="md-toc-inner" href="#5-virtualización">5. Virtualización</a></span><span role="listitem" class="md-toc-item md-toc-h3" data-ref="n126"><a class="md-toc-inner" href="#51-software-de-virtualización">5.1. Software de Virtualización</a></span><span role="listitem" class="md-toc-item md-toc-h3" data-ref="n133"><a class="md-toc-inner" href="#52-docker">5.2. Docker</a></span><span role="listitem" class="md-toc-item md-toc-h3" data-ref="n138"><a class="md-toc-inner" href="#53-instalar-maquina-virtual-linux">5.3. Instalar Maquina Virtual Linux</a></span><span role="listitem" class="md-toc-item md-toc-h4" data-ref="n140"><a class="md-toc-inner" href="#crear-nueva-máquina">Crear Nueva Máquina</a></span><span role="listitem" class="md-toc-item md-toc-h4" data-ref="n150"><a class="md-toc-inner" href="#linkar-la-iso">Linkar la ISO</a></span><span role="listitem" class="md-toc-item md-toc-h4" data-ref="n157"><a class="md-toc-inner" href="#encender-la-máquina">Encender la Máquina</a></span><span role="listitem" class="md-toc-item md-toc-h2" data-ref="n179"><a class="md-toc-inner" href="#🎲-ejercicios">🎲 Ejercicios</a></span><span role="listitem" class="md-toc-item md-toc-h2" data-ref="n188"><a class="md-toc-inner" href="#📕-bibliografía">📕 Bibliografía</a></span></p></div><h1 id='tema-02-gnulinux'><span>Tema 02: GNU/Linux</span></h1><p>&nbsp;</p><h2 id='1-introducción'><span>1. Introducción</span></h2><p><span>Cuando preguntas a un &quot;normie&quot; sobre sistemas operativos para ordenadores te dirán Windows o &quot;Apple&quot; (refiriendose a MacOS). Es normal ya que las tiendas ofertan equipos con uno de estos 2 sistemas. Con un gamer es más probable que mencione Linux, no es casualidad que Steam sacase su propia versión llamada </span><a href='https://store.steampowered.com/steamos'><span>SteamOS</span></a><span>. Para servidores y supercomputadores es considerado la opción número uno, abarcando más del 90%.</span></p><p><span>Respecto a terminales móviles responderán Android o IOS. Pero muchos hemos olvidado que el kernel de Android es el de GNU/Linux. Adelantamos que usamos mal la palabra Linux, es distinta a los terminos de GNU/Linux y UNIX. Sin embargo están muy estrechamente relacioandos.</span></p><p><span>Ser consciente de que usas Linux significa que quieres conectar con el equipo, ir más allá de lo casual. Pero cuidado, muchos han caido en el fanatismo de la filosofía del software libre. </span></p><p><img src="pics/gamer-boy.jpg" alt="gamer-boy" style="zoom:15%;" /></p><h2 id='2-historia'><span>2. Historia</span></h2><p><span>La historia de Linux se entremezcla con al del software libre y UNIX. También es necesario de hablar de otros fenómenos y herramientas que ayudaron a su difusión. Si hablasemos por separado de cada una se quedarían cojas.</span></p><p>&nbsp;</p><h3 id='21-compartir-y-aprender'><span>2.1. Compartir y Aprender</span></h3><p><span>A finales de los 50 y durante los 60, el SW era creado por académicos e investigadores que trabajaban en corporaciones. Colaboraban y distrubuían el código fuente. La idea era que entre todos crecer y contibuir en añadir mejoras y buscar errores. No era concevible su comercialización. El SO del mainframe de IBM llamado ACP (Airline Control Program) se distribuía su código fuente sin mucha restricción.</span></p><p><span>Con el IBM 701 apareció el grupo &quot;SHARE&quot; y usuarios de equipos DEC crearón el grupo &quot;DECUS&quot;. Podrían considerarse entre los primeros grupos de software libre, ya que elaboraban y compartían el SW creado para éstas máquinas.</span></p><p><span>A finales de los 60 el panorama cambió. Era más caro la elaboración de SW debido a la evolución de los SO y compiladores. Las empresas para competir embebían el SW en el HW de los equipos. Éstas máquinas eran arrendadas e incluían el sobrecosto del SW. Dichos costes incluía la asistencia técnica tanto del HW como del SW. Usuarios se quejaban de la situación, se sentían autosuficientes y solo querían pagar por la parte del HW. En 1969 IBM fue demanadada por los Estados Unidos por violar la libre competencia.</span></p><p><img src="pics/gnu_hackers.jpg" alt="gnu_hackers" style="zoom:40%;" /></p><p>&nbsp;</p><h3 id='22-software-privativo'><span>2.2. Software Privativo</span></h3><p><span>A finales de los 70 y principios de los 80 se volvió rutinario el cobrar licencias software, comenzando lo que conocemos como &quot;software privativo&quot;. Usando los derechos de autor, registro de marcas y contratos de arrendamiento, desarrollaron una seríe de herramientas legales. </span></p><p><span>Uno de los que mejor supo aprovechar este terreno para despretigiar el mundo del SW libre fue Bill Gates. Afirmó en la &quot;Carta abierta a los aficionados&quot; que los &quot;hackers&quot; llamaban &quot;compartir&quot; a &quot;robar&quot;. Hay que matizar que el termino hacker en sus inicios no fue ni peyorativo ni delictivo. Desde siempre los medios de comunicación han crecido a costa del sensacionalismo, el morbo y el alarmismo. Esto junto al desconocimiento y casos de personas que lo usaron para su propio beneficio, engrosaron sus arteras a costa de desprestigiar. </span></p><p><span>Ahora para subsanar este daño han creado el termino &quot;hacking ético&quot;, un innecesario lavado de imágen porque no somos capaces de investigar, escuchar y ver más allá de las apariencias.</span></p><p>&nbsp;</p><h3 id='23-usenet'><span>2.3. Usenet</span></h3><p><span>Ahora tenemos foros, blogs, redes sociales y sistemas de mensajería para comunicarnos. El primer sistema que se creo para discutir artículos fué Usenet. Fué creado en 1979 por Tom Truscott y Jim Ellis, estudiantes de la Universidad de Duke. </span></p><p><span>Consiste en un conjunto de servidores distribuidos que almacenan y transmiten los artículos y mensajes. Funcionaba a través de la creación de grupos de noticias, que se organizaban de forma jerárquica. Los usuarios se subscriben a los grupos que más les gusta.</span></p><p><span>Aquí no hay emojis, imágenes o videos, solamente mensajes de texto. Usaban para la comunicación el protocolo UUCP. A diferencia de ahora, Internet se basa en la arquitectura TCP/IP para funcionar.</span></p><p>&nbsp;</p><h3 id='24-unix'><span>2.4. UNIX</span></h3><p><span>En 1969 apareció un proyecto por investigadores de General electrics, AT&amp;T Bell y del MIT. Querían crear un SO con nuevos conceptos como interfaces multimedia y gestión de archivos. Se llamó MULTICS pero fué tan grande que los contratiempos y retrasos provocó su abandono.</span></p><p><span>Más tarde en 1969 Ken Thompson (uno de los creaodres del lenguaje C), Dennis Ritchie y otros lo retomaros creando UNICS. A diferencia de la idea original daría soporte a 2 usuarios a la vez. En 1970 implementaron una pequeña variación y cambairon el nombre a UNIX. El problema que había es que estaba escrito en esamblador, siendo difícil portarlo a otras máquinas. En 1973 Denis y Ken crearon un proyecto para reescribirlo en C. Era solo trabajo del compilador de C el tarducir el código para que sea compatible con distitnos sistemas. Ya el problema de la distribución de UNIX se superó.</span></p><p><span>Comenzó a crecer una comunidad y a surgir la &quot;filosofía UNIX&quot;. En un principio solo se distribuyó en algunos departamentos de informática de algunas universidades. Más tarde los laboratorios Bell empezaron a conceder licencias. </span></p><p><span>La universidad de Berkeley trabajo por su cuenta añadiendo nuevas funcionalidades a UNIX. Otorgó popularidad y se convirtió en un SO estándar. En 1975 Ken sacó su versión llamada BSD. Los laboratoriso Bell continuaron por su parte presentando en 1982 Sistema III. Consistía en una versión para comercializarse. También estaba AT&amp;T que en 1983 creó UNIX Sistema. Sacarón distintas versiones que permitían al retrocompatibilidad con programas.</span></p><p><span>¿Qué paso con BSD? también continuó su desarrollo. A finales de los años 70 fué usado como base para el proyecto gubernamental DARPA, el antecesor de Internet. Sacarón la versión 4.2. donde destacaba su gestión de archivos y el trabajo en red. Para comunicarse entre equipos crearon los protocolos TCP/IP, que son los que usamos hoy en día para que Intenet sea posible. </span></p><p><span>Microsoft tampoco quiso quedarse atrás, cogió UNIX y lo transformo en XENIX en 1980. Como mérito fué acercar UNIX a los PC, que solo era concebido para grandes computadoras. Mas tarde colaboró con AT&amp;T sacando UNIX Sistema V para ser usado en PC y garndes estaciones.</span></p><p><span>Todo este desarrollo se tradujo en muchos quebraderos d ecabeza para programadores. Las distintas versiones de UNIX eran tan distintas que había que programar distintas versiones. Esto hizo que apareciera la necesidad de crear algún tipo de estándar. En los 80 apareció el estándar POSIX, todo desarrollo realizado bajo estas recomendaciones era compatible con los distintos sistemas UNIX. ¿Sabías que se sigue usándo hoy en día? sobretodo dentro del mundo GNU/Linux.</span></p><p><img src="pics/unix.png" alt="unix" style="zoom:50%;" /></p><p>&nbsp;</p><h3 id='25-proyecto-gnu'><span>2.5. Proyecto GNU</span></h3><p><span>Primero hablemos de la historia de una de las figuras más importante de la informática, quien diga Steve Jobs o Bill Gates recibirá golpe de remo 😠 Richard Stallman forma parte de la cultura hacker clásica de los 70, la cual iba desapareciendo por el auge del modelo de software privativo. Compañeros suyos de laboratorio fundaron la compañía Symbolics. Remplazaban el SW del laboratorio por el suyo privativo. Stallman trabajo para impedir que Symbolics monopolizase todos los ordenadores del laboratorio. Los hackers fueron desapareciendo del laboratorio quedando solo él. </span></p><p><span>Un día hubo un problema con unas impresoras. Stallman necesitaba sus drivers para arreglarlo y hablo con el fabricante. Accederían a darselos pero debía de firmar una cuerdo de no divulgación y comprometerse a unas acciones. No accedió ya que lo consideraba una traición a sus propios principios.</span></p><p><span>Harto de la situación del software privativo, anunció en 1983 el inicio del &quot;</span><a href='https://www.gnu.org/'><span>Proyecto GNU</span></a><span>&quot; a través de Usenet. Su misión era la de crear un SO completo y de código abierto. De esta forma quedaba libre de restricciones para usarlo, modificarlo y distribuirlo. Sería compatible con Unix para facilitar el cambio de sistema operativo. El nombre GNU es un acrónimo recursivo que significa &quot;GNU&#39;s Not Unix&quot;. Al compartirse la interfaz gráfica y otras herramientas libres generaba confusiones.</span></p><p><span>Los SO están formados por el kernel, diversas herramientas y una interfaz gráfica. Incorporaron al proyecto algunas aplicaciónes ya existentes. Por ejemplo para los textos estaba el programa TeX y para la interfaz X Window (también usada en Unix). El resultado fue la aparición de GNU/Linux a principios de los 90. Debido a que era de código abierto y la incipiente comunidad, surgieron las distribuciones. Era GNU/Linux pero optimizado y con conjunto de aplicaciones distintas. Yggdrasil, Slackware y Debian fueron las primeras.</span></p><p><span>Hoy en día GNU continúa con el desarrollo de GNU/Linux. Todo proyecto software nunca acaba, sino es un proceso de continua mejora. La sociedad evoluciona y nuevas necesidades van apareciendo.</span></p><p><img src="pics/gnu-tux.png" referrerpolicy="no-referrer" alt="gnu-tux"></p><h3 id='26-linux'><span>2.6. Linux</span></h3><p><span>El proyecto GNU necesitaba un kernel si quería tener un SO. Este hueco lo cubrió el núcleo Linux, proyecto liderado por Linus Torvalds.</span></p><p><span>En 1991 Linus quería hacer un SO inspirado en Minix (un clon de Unix de código abierto). Hizo un anuncio en Usenet y muchos se animaron a ayudar. La primera versión no era una licencia de software libre, pero si hacia mención explicita de no cobrar por distribuir el código. La siguiente fué bajo GPL, licenciamiento creado por la Free Software Fundation.</span></p><p><span>Se combinó las herramientas desarrollados por GNU con Linux dando lugar al sistema operativo GNU/Linux. Popularmente se llama Linux, ya que un SO sin su kernel nosería como tal. Alguno acólitos (entre ellos Stallman) piden que por favor se diga GNU/Linux, para atribuir méritos a ambas partes.</span></p><p><span>A modo anecdótico, en 1996 Linus adoptó a Tux como la mascota de Linux. Un pingüino simpático sentado. Fué diseñado por Larry Ewing basándose en una imágen que encontró Linus en un servidor FTP. </span></p><p>&nbsp;</p><h3 id='27-software-libre'><span>2.7. Software Libre</span></h3><p><span>El proyecto GNU necesitaba apoyo logístico, legales y financieros. También era necesario dar forma al movimiento de software libre. Todo ello condujo a que Stallman fundase la Free Software Fundation (FSF) en 1985. </span></p><p><span>Primero se definió el concepto de software libre. En ingles la palabra &quot;free&quot; puede significar tanto &quot;gratis&quot; como &quot;libre&quot;. Estás aplicaciones se adquieren de forma gratuita o pagando unos bajos costos de distribución en un soporte. Esta situación provoca que pensemos que es software gratuito en vez de libre.</span></p><p><span>Para facilitar la comprensión se establecieron los 4 principios:</span></p><ol start='' ><li><span>Libertad de ejecución</span></li><li><span>Libertad de estudio del código. </span></li><li><span>Libertad de redistribución de copias.</span></li><li><span>Libertad de mejorar el programa y publicarlas.</span></li></ol><p><span>Para que puedan cumplirse es necesario poder acceder al código fuente.</span></p><p><img src="/home/ladysun/notes/uned/sistema-operativos-redes/pics/stallman.jpeg" alt="stallman" style="zoom: 20%;" /></p><h3 id='28-open-source'><span>2.8. Open Source</span></h3><p><span>En 1997 Eric S. Raymond fundó la </span><a href='https://opensource.org/'><span>Open Source Initiative</span></a><span>. El objetivo es promover las ventajas de la publicación del código fuente en los negocios. Los integrantes iniciales eran interesados en el software libre y GNU/Linux.</span></p><p><span>Los conceptos de software libre y open source se confunden, incluso a veces se usan como sinónimos. El único punto en común es la necesidad de publicar el código. El software libre preserva la filosofía de los programadores hackers de los 70, grupos para compartir y aprender. El open source se centra en fomentar los beneficios del código abierto en las empresas. Son visiones distintas que generan matices diferentes. Por ejemplo en una aplicación open source puede que haya restricciones en la distribución de mejoras. Podría darse el caso de que el código se publica solo con la intención de encontrar fallos.</span></p><p>&nbsp;</p><h2 id='3-distribuciones'><span>3. Distribuciones</span></h2><p><span>También son llamadas &quot;distro&quot;. Son SO compuestos de 3 partes:</span></p><ul><li><span>Un core GNU/Linux. Incluye el kernel de Linux junto con unas herramientas.</span></li><li><span>Un conjunto de programas. En Linux son llamados paquetes.</span></li><li><span>Una interfaz gráfica llamada &quot;escritorio&quot; o &quot;desktop&quot;.</span></li></ul><p><span>El core GNU/Linux es común en todas las distros, tal vez con algunas configuraciones y optimizaciones propias. Solo cambia los paquetes y el escritorio. Incluso una misma distro se ofrece con distintos escritorios. Da lugar a la creación de sistemas Linux con distintso sabores. </span></p><p><span>Vamos a detenernos en los escritorios. Los más famosos son </span><a href='https://www.gnome.org/'><span>GNOME</span></a><span>, </span><a href='https://kde.org/'><span>KDE</span></a><span>, </span><a href='https://xfce.org/'><span>Xfce</span></a><span>, </span><a href='https://mate-desktop.org/'><span>Mate</span></a><span>, </span><a href='https://ubuntuunity.org/'><span>Unity</span></a><span> (culpable de que muchos dejásemos Ubuntu) y un montón más. Todos son interfaces de ventanas, algunos nos recuerdan más Windows y otros a MacOS. Algunos se abanderan de ser ligeros como Xfce para distros ligeras. Hay muchas personas que quieren dar una segunda vida a equipos viejos y usan </span><a href='https://puppylinux.com/'><span>Puppy</span></a><span>, </span><a href='https://lubuntu.net/'><span>Lubuntu</span></a><span>, </span><a href='https://www.bodhilinux.com/'><span>Bodhi</span></a><span> o </span><a href='https://www.linuxliteos.com/'><span>Linux Lite</span></a><span>. Llegan a ocupar 200Mb y hacer un consumo de 64Mb de RAM.</span></p><p><img src="/home/ladysun/notes/uned/sistema-operativos-redes/pics/distro.png" alt="distro" style="zoom: 80%;" /></p><p>&nbsp;</p><h2 id='4-¿por-qué-linux'><span>4. ¿Por qué Linux?</span></h2><h3 id='ventajas'><span>Ventajas</span></h3><ul><li><span>Al ser de código abierto cualquiera puede observarlo. Esto ayuda a encontrar bugs y sugerir mejoras. Si el proyecto gusta y se crea comunidad, al final obtienes programas de mayor calidad. En el software de codigo cerrado hay que depener de la buena fé de la empresa desarrolladora.</span></li><li><span>Existen en Internet una gran cantidad de distribuciones. Incluso puedes animarte con un equipo y hacer la tuya propia. Cada una está pensada para un usuario o equipo en concreto. Por ejemplo, algunas son tan ligeras que llegan a ocupar 200Mb. Incluso están optimizadas para que funcionen en equipos con muy pocos recursos.</span></li><li><span>Si eres programador &quot;no Windows&quot; y &quot;no Mac&quot; tienes una gran ventaja. Casi todos los lenguajes y herramientas de programación son pensadas primero en Linux. Por tanto el soporte está garantizado de entrada.</span></li><li><span>Prácticamente la administración de servidores se hace con GNU/Linux.</span></li><li><span>En computación científica de grandes pestaciones, sino fuera por Linux no sería posible. Necesitan programas y sistemas a medida. También apoyarse en las herramientas de software libre para su distribución y crear comunidades.</span></li><li><span>A día de hoy puedes hacer las mismas cosas que en Windows o Mac. Todos los navegadores están disponibles ¡Incluso Edge! Tenemos editor de imágen, video, suite ofimática, gestor de correos...</span></li><li><span>Dispone de una gran cantidad de herramientas para diagnóstico y arreglo. La mayoría son por consola de comandos. Esto puede suponer una desventaja pero no es así. La interfaz de comandos puede incluso ser más ágil y rápida. También tiene la ventaja de ocupar menor tamaño. Las interfaces gráficas en muchas ocasiones se hacen pesadas y enrevesadas.</span></li><li><span>Puedes meter en un USB una distribución autoarrancable. Dando igual el SO, si un equipo tiene problemas de arranque puedes diagnosticarlo con un USB Linux. Permite ejecutar una distro desde el pendrive y acceder a todas sus herramientas. Incluso hay distribuciones de solo diagnóstico y arreglo.</span></li></ul><p><span> </span></p><h3 id='contras'><span>Contras</span></h3><ul><li><span>Como su mercado es un usuario espcializado no es popular. Familias y personas de a pié no se preocupan en los equipos que adquieren. Buscan la imágen, renombre o &quot;cuestionables&quot; comodidades.</span></li><li><span>Aunque con el paso del tiempo haya mejorado la facilidad de instalar programas, sigue siendo oscura en muchas ocasiones. Muchas distribuciones ofrecen gestores de paquetes con interfaz gráfica. El problema es que están pensadas para usuarios casuales, los cuales son poquitos. Los más avanzados se las apañan con paquetes .deb o la herramienta de consola apt-get. Aún así pueden surgir algunos problemas de compatibilidades y dependencias que pueden llegar a ser tediosas de arreglar. Ya no digamos los &quot;tarball&quot;, paquetes comprimidos en formato .tar.gz, .tar.bz2 o .tar.xz. Un .tar solo es un empaquetado de ficheros, dando como resultado el mismo tamaño en disco. Posteriormente se comprime en .gz, .bz2 o .xz, para ocupar menos espacio y distribuirlos mejor. Una vez que logras descomprimir y desempaquetar, tienes que compilarlo tu mismo. Normalmente se ayudan con la herramienta makefile, pero aún así muchos programadores no dejan las instrucciones claras y es arduo hacerlo.</span></li><li><span>Todavía existen algunas incompatibilidades con drivers. Hace cosa de más de una decada habían bastantes problemas, sobretodo con las tarjetas gráficas. Incluso algunos periféricos podían no funcionar. Ahora el panorama a mejorado mucho.</span></li><li><span>Grandes aplicaciones como las de Adobe no se ofrecen para Linux. Hace perder bastante la cuota de diseñadores que es bastante grande.</span></li><li><span>A pesar de existir SteamOS no hay gran soporte gaming.</span></li></ul><p>&nbsp;</p><h3 id='conclusión'><span>Conclusión</span></h3><p><span>Analizado lo anterior se deduce que los equipos con GNU/Linux están pensados para expertos informáticos. Ya sea técnicos, administradores o desarrolladores. No obstante hay esfuerzos para atraer diseñadores como Ubuntu Design, o bien gamers con SteamOS. Respecto al usuario doméstico queda mucho camino. Si tal vez se superase la cuestión de imágen social y una mayor curiosidad, podriamos ver a más casuales usando GNU/Linux. </span></p><p>&nbsp;</p><h2 id='5-virtualización'><span>5. Virtualización</span></h2><p><span>📖 </span><strong><span>Virtualizar</span></strong></p><blockquote><p><span>Capacidad de poder simular un equipo con su HW dentro de otro equipo.</span></p></blockquote><p><span>Hay aplicaciones que permiten simular equipos completos. De esta forma creamos entornos controlados. Podemos configurar y asignar recursos hardware como añadir varios adaptadores de red, la cantidad de memoria o el espacio en disco. Cuidado con lo que añadimos, podemos pasarnos y quitar recursos a nuestro equipo host. Esto se traduce en una bajada de rendimiento.</span></p><p><span>Una vez creada la máquina podemos instalar un sistema operativo y el conjunto de aplicacioens que queramos. Podemos crear varias máquinas y simular una red de area local. También aprender a crear un acceso de usuarios controlado. Muchas personas que les gusta el retrogaming instalan sistemas operativos antiguo como MS Dos para juegos de los 80-90.</span></p><p>&nbsp;</p><h3 id='51-software-de-virtualización'><span>5.1. Software de Virtualización</span></h3><ul><li><strong><span>VirtualBox</span></strong><span>: El que vamos a usar en las prácticas. Tiene licenciamiento GPL, por tanto su código fuente está disponible. Tampoco hay impedimentos legales para instalarlo y ejecutarlo en un aula, empresa o en tu casa. Interfaz sencilla e intuitiva.</span></li><li><strong><span>VMWare</span></strong><span>: Es una opción con licencia privativa. Bastante completa y muy configurable. VMWare Workstation Player es gratuito si no lo usas con fines comerciales. Por tanto puedes instalarla en el aula o en casa, pero no en tu empresa.  Esta versión no es tan completa como su producto comercial Workstatin Pro (pero si lo instalas en casa de piratilla para aprender no llamaré a la poli 😉).</span></li></ul><p>&nbsp;</p><h3 id='52-docker'><span>5.2. Docker</span></h3><p><span>No se usará en las sesiones, solo lo mencionamos para que nos sea familiar. Permite empaquetar una aplicación junto con librerías, herramientas y configuración. Estos paquetes son llamados contenedores. El cliente Docker los ejecuta permitiendo acceder a la aplicación.</span></p><p><span>La idea reside de que la virtualización consume muchos recursos. Tambien supone un costo temporal configurarlas. La instalación de servidores, gestores de bases de datos y programas pueden generar conflictos. Hay distintas versiones y configuraciones distintas para hacerlos funcionar. Podemos crear un programa compatible con un servidor, pero otro necesite una versión anterior del mismo. Con los contenedores podemos tener distintas versiones del mismo servidor sin interferirse. Estos contenedores consumen menos recursos que tener varias máquinas virtuales.</span></p><p><span>Ha ganado mucha popularidad esta opción entre programadores. Su ligereza, rápidez de instalación y configuracón a generado que sea indispensable manejarlos para ser programador.</span></p><p>&nbsp;</p><h3 id='53-instalar-maquina-virtual-linux'><span>5.3. Instalar Maquina Virtual Linux</span></h3><p><span>Vamos a indicar por pasos como instalar una distro de GNU/Linux en VirtualBox.</span></p><h4 id='crear-nueva-máquina'><span>Crear Nueva Máquina</span></h4><p><span>Pulsamos al botón &quot;new&quot; de la barra de herramientas</span></p><p><img src="pics/vb_01.png" alt="vb_01" style="zoom:60%;" /></p><p><span>En el asistente introducimos la configuración hardware. Estas specs están basadas en als recomendaciones mínimas para hacer funcionar Linux Mint.</span></p><p><img src="pics/vb_02.png" referrerpolicy="no-referrer" alt="vb_02"></p><p><img src="pics/vb_03.png" referrerpolicy="no-referrer" alt="vb_03"></p><p><img src="pics/vb_04.png" referrerpolicy="no-referrer" alt="vb_04"></p><p><img src="pics/vb_05.png" referrerpolicy="no-referrer" alt="vb_05"></p><p><img src="pics/vb_06.png" referrerpolicy="no-referrer" alt="vb_06"></p><p><img src="pics/vb_07.png" referrerpolicy="no-referrer" alt="vb_07"></p><h4 id='linkar-la-iso'><span>Linkar la ISO</span></h4><p><span>En el lateral izquierdo se muestra el listado de máquinas virtuales. Haz click con el botón derecho en la de Linux Mint. Selecciona en el menú la opción &quot;configuración&quot;. En la opción &quot;storage&quot; podemos indicar que la unidad de CD/DVD emulada cargue una iso.</span></p><p><img src="pics/vb_10.png" referrerpolicy="no-referrer" alt="vb_10"></p><p>&nbsp;</p><p><img src="pics/vb_10.png" referrerpolicy="no-referrer" alt="vb_10"></p><p>&nbsp;</p><p>&nbsp;</p><h4 id='encender-la-máquina'><span>Encender la Máquina</span></h4><p><span>Selecciona la maquina virtual del menu lateral, luego pulsa al botón &quot;Start&quot; de la barra de herramientas superior</span></p><p><img src="pics/vb_11.png" referrerpolicy="no-referrer" alt="vb_11"></p><p><span>Una vez dentro selecciona el icono del escritorio &quot;Install Linux Mint&quot;</span></p><p><img src="pics/vb_12.png" alt="vb_12" style="zoom:65%;" /></p><p><span>Sigue los pasos de la instalación. Cuando llegues a la selección del nombre de usuario y equipo usa esta nomenclatura:</span></p><figure><table><thead><tr><th><span>nombre</span></th><th>&nbsp;</th><th>&nbsp;</th></tr></thead><tbody><tr><td><span>usuario</span></td><td><span>&quot;user&quot; + &quot;_&quot; + [pseudónimo]</span></td><td><span>user_kodeneko</span></td></tr><tr><td><span>equipo</span></td><td><span>&quot;equipo&quot; + &quot;_&quot; + [pseudónimo]</span></td><td><span>equipo_kodeneko</span></td></tr></tbody></table></figure><p>&nbsp;</p><hr /><p>&nbsp;</p><h2 id='🎲-ejercicios'><span>🎲 Ejercicios</span></h2><ul><li><p><a href='https://pregunta2.com/quiz/71eaeddc'><span>Test de Repaso 01</span></a></p></li><li><p><span>Vamos a crear una máquina virtual con Linux Mint. Primero hay que instalar </span><a href='https://www.virtualbox.org/'><span>Virtual Box</span></a><span>. A continuación vamos a descargar la última versión de </span><a href='https://linuxmint.com/'><span>Linux Mint</span></a><span>. A la hora de crear la máquina virtual seguiremos las recomendaciones que aparecen en el apartado &quot;Virtualización&quot;. No olvides seguir las reglas para nombrar al usuario y al equipo.</span></p><p><span>Si te sobra tiempo prueba a crear otra máquina con otra distro. Por ejemplo usa </span><a href='https://manjaro.org/'><span>Manjaro</span></a><span>, </span><a href='https://ubuntustudio.org/'><span>Ubuntu Studio</span></a><span>, </span><a href='https://store.steampowered.com/steamos'><span>SteamOS</span></a><span>, </span><a href='https://pop.system76.com/'><span>Pop!_OS</span></a><span> o </span><a href='https://archstrike.org/'><span>ArchStrike</span></a><span>. Si tienes otra en mente que te motiva más puedes hacer.</span></p><p><span>Has de entregar un breve escrito indicando las impresiones que tienes sobre las máquinas virtuales y del uso de Linux. Si te ha dado tiempo a instalar otra máquina escribe en el documento los motivos de su elección. Tranquilo, no consiste en hacer una redacción perfecta y que guste al profe. Trata de expresarte y hacer críticas constructivas 😉</span></p><p>&nbsp;</p></li></ul><h2 id='📕-bibliografía'><span>📕 Bibliografía</span></h2><ul><li><span>Artículo Wikipedia &quot;Historia del Software Libre y de código abierto&quot;</span>
+<a href='https://es.wikipedia.org/wiki/Historia_del_software_libre_y_de_c%C3%B3digo_abierto' target='_blank' class='url'>https://es.wikipedia.org/wiki/Historia_del_software_libre_y_de_c%C3%B3digo_abierto</a></li><li><span>Artículo proyecto GNU &quot;¿Qué es el Software Libre?&quot;</span>
+<a href='https://www.gnu.org/philosophy/free-sw.es.html' target='_blank' class='url'>https://www.gnu.org/philosophy/free-sw.es.html</a></li><li><span>Timetoast &quot;Linea del Tiempo de la Historia del Software libre&quot;</span>
+<a href='https://www.timetoast.com/timelines/linea-del-tiempo-de-la-historia-del-software-libre--2' target='_blank' class='url'>https://www.timetoast.com/timelines/linea-del-tiempo-de-la-historia-del-software-libre--2</a></li><li><span>Artículo Wikipedia &quot;Usenet&quot;</span>
+<a href='https://es.wikipedia.org/wiki/Usenet' target='_blank' class='url'>https://es.wikipedia.org/wiki/Usenet</a></li><li><span>Artículo Wikipedia &quot;GNU/Linux&quot;</span>
+<a href='https://es.wikipedia.org/wiki/GNU/Linux' target='_blank' class='url'>https://es.wikipedia.org/wiki/GNU/Linux</a></li><li><span>Artículo Wikipedia &quot;Richard Stallman&quot;</span>
+<a href='https://es.wikipedia.org/wiki/Richard_Stallman' target='_blank' class='url'>https://es.wikipedia.org/wiki/Richard_Stallman</a></li><li><span>Artículo &quot;Historia de Linux&quot;</span>
+<a href='https://histinf.blogs.upv.es/2011/12/23/historia-de-linux/' target='_blank' class='url'>https://histinf.blogs.upv.es/2011/12/23/historia-de-linux/</a></li><li><span>Artículo &quot;La historia de Linux: nacimiento, crecimiento y madurez de un pingüino&quot;</span>
+<a href='https://www.malavida.com/es/analisis/la-historia-de-linux-nacimiento-crecimiento-y-madurez-de-un-pinguino-005489' target='_blank' class='url'>https://www.malavida.com/es/analisis/la-historia-de-linux-nacimiento-crecimiento-y-madurez-de-un-pinguino-005489</a></li><li><span>Artículo proyecto GNU &quot;¿Qué es el software libre?&quot;</span>
+<a href='https://www.gnu.org/philosophy/free-sw.es.html#copyleft' target='_blank' class='url'>https://www.gnu.org/philosophy/free-sw.es.html#copyleft</a></li><li><span>Artículo proyecto GNU &quot;El proyecto GNU&quot;</span>
+<a href='https://www.gnu.org/gnu/thegnuproject.es.html' target='_blank' class='url'>https://www.gnu.org/gnu/thegnuproject.es.html</a></li><li><span>Artículo &quot;Hitoria de UNIX - Origen y versiones del Sistema Operativo&quot;</span>
+<a href='https://disenowebakus.net/historia-de-unix.php' target='_blank' class='url'>https://disenowebakus.net/historia-de-unix.php</a></li></ul><p>&nbsp;</p><p>&nbsp;</p></div></div>
+</body>
+</html>

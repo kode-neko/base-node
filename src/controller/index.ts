@@ -1,1 +1,3 @@
-export { getExample, getTemplate } from './example';
+export {
+  getExample, getChangeLang, getTemplate, getSubject,
+} from './example';

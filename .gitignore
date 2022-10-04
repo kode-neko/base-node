@@ -96,3 +96,6 @@ cypress/screenshots
 cypress/videos
 cypress/videos/e2e/1-getting-started
 cypress/videos/e2e/2-advanced-examples
+
+# Dist
+public/src

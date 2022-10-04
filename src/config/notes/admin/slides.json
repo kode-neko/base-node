@@ -1,0 +1,37 @@
+[
+  {
+    "id": 1,
+    "type": "doc",
+    "name": "Introducción",
+    "url": "https://docs.google.com/presentation/d/1IQUAdqQIIcaTQIojU0YhevB88q7VfdfQ4cIUkz2-kog/edit?usp=sharing",
+    "desc": "In non in minim occaecat ipsum commodo ut."
+  },
+  {
+    "id": 2,
+    "type": "slides",
+    "name": "GNU/Linux",
+    "url": "https://view.genial.ly/61c888e69d7e660de754c74d/presentation-admin-sist-tema-2",
+    "desc": "In non in minim occaecat ipsum commodo ut."
+  },
+  {
+    "id": 4,
+    "type": "slides",
+    "name": "Usuarios y grupos",
+    "url": "https://view.genial.ly/61cde75d1f63df0dd8e482ac/presentation-admin-sist-tema-4",
+    "desc": "In non in minim occaecat ipsum commodo ut."
+  },
+  {
+    "id": 5,
+    "type": "slides",
+    "name": "Administración y redes",
+    "url": "https://view.genial.ly/61d87f5ed2c6070de780a43a/presentation-admin-sist-tema-5",
+    "desc": "In non in minim occaecat ipsum commodo ut."
+  },
+  {
+    "id": 6,
+    "type": "slides",
+    "name": "Sistemas de archivos y particionado",
+    "url": "https://view.genial.ly/61ea802aff326600139940d4/presentation-admin-sist-tema-6",
+    "desc": "In non in minim occaecat ipsum commodo ut."
+  }
+]
