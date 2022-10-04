@@ -16,8 +16,13 @@ function getTemplate(req: Request, res: Response): void {
   res.render('main', { title: 'titulo', content: 'contenido' });
 }
 
+function getSubject(req: Request, res: Response): void {
+  res.render('subject');
+}
+
 export {
   getExample,
   getChangeLang,
   getTemplate,
+  getSubject,
 };

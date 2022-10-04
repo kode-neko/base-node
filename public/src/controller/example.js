@@ -3,7 +3,7 @@ var __importDefault = (this && this.__importDefault) || function (mod) {
     return (mod && mod.__esModule) ? mod : { "default": mod };
 };
 Object.defineProperty(exports, "__esModule", { value: true });
-exports.getTemplate = exports.getChangeLang = exports.getExample = void 0;
+exports.getSubject = exports.getTemplate = exports.getChangeLang = exports.getExample = void 0;
 const i18next_1 = __importDefault(require("i18next"));
 function getExample(req, res) {
     const example = { content: 'test' };
@@ -19,3 +19,7 @@ function getTemplate(req, res) {
     res.render('main', { title: 'titulo', content: 'contenido' });
 }
 exports.getTemplate = getTemplate;
+function getSubject(req, res) {
+    res.render('subject');
+}
+exports.getSubject = getSubject;

@@ -6,4 +6,5 @@ const router = (0, express_1.Router)();
 router.get('/', controller_1.getExample);
 router.get('/changeLang', controller_1.getChangeLang);
 router.get('/tpl', controller_1.getTemplate);
+router.get('/dev', controller_1.getSubject);
 exports.default = router;
