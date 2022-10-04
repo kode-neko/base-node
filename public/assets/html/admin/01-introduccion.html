@@ -1,0 +1,606 @@
+<!doctype html>
+<html>
+<head>
+<meta charset='UTF-8'><meta name='viewport' content='width=device-width initial-scale=1'>
+
+<link href='https://fonts.loli.net/css?family=Open+Sans:400italic,700italic,700,400&subset=latin,latin-ext' rel='stylesheet' type='text/css' /><style type='text/css'>html {overflow-x: initial !important;}:root { --bg-color:#ffffff; --text-color:#333333; --select-text-bg-color:#B5D6FC; --select-text-font-color:auto; --monospace:"Lucida Console",Consolas,"Courier",monospace; --title-bar-height:20px; }
+.mac-os-11 { --title-bar-height:28px; }
+html { font-size: 14px; background-color: var(--bg-color); color: var(--text-color); font-family: "Helvetica Neue", Helvetica, Arial, sans-serif; -webkit-font-smoothing: antialiased; }
+body { margin: 0px; padding: 0px; height: auto; inset: 0px; font-size: 1rem; line-height: 1.42857; overflow-x: hidden; background: inherit; tab-size: 4; }
+iframe { margin: auto; }
+a.url { word-break: break-all; }
+a:active, a:hover { outline: 0px; }
+.in-text-selection, ::selection { text-shadow: none; background: var(--select-text-bg-color); color: var(--select-text-font-color); }
+#write { margin: 0px auto; height: auto; width: inherit; word-break: normal; overflow-wrap: break-word; position: relative; white-space: normal; overflow-x: visible; padding-top: 36px; }
+#write.first-line-indent p { text-indent: 2em; }
+#write.first-line-indent li p, #write.first-line-indent p * { text-indent: 0px; }
+#write.first-line-indent li { margin-left: 2em; }
+.for-image #write { padding-left: 8px; padding-right: 8px; }
+body.typora-export { padding-left: 30px; padding-right: 30px; }
+.typora-export .footnote-line, .typora-export li, .typora-export p { white-space: pre-wrap; }
+.typora-export .task-list-item input { pointer-events: none; }
+@media screen and (max-width: 500px) {
+  body.typora-export { padding-left: 0px; padding-right: 0px; }
+  #write { padding-left: 20px; padding-right: 20px; }
+  .CodeMirror-sizer { margin-left: 0px !important; }
+  .CodeMirror-gutters { display: none !important; }
+}
+#write li > figure:last-child { margin-bottom: 0.5rem; }
+#write ol, #write ul { position: relative; }
+img { max-width: 100%; vertical-align: middle; image-orientation: from-image; }
+button, input, select, textarea { color: inherit; font: inherit; }
+input[type="checkbox"], input[type="radio"] { line-height: normal; padding: 0px; }
+*, ::after, ::before { box-sizing: border-box; }
+#write h1, #write h2, #write h3, #write h4, #write h5, #write h6, #write p, #write pre { width: inherit; }
+#write h1, #write h2, #write h3, #write h4, #write h5, #write h6, #write p { position: relative; }
+p { line-height: inherit; }
+h1, h2, h3, h4, h5, h6 { break-after: avoid-page; break-inside: avoid; orphans: 4; }
+p { orphans: 4; }
+h1 { font-size: 2rem; }
+h2 { font-size: 1.8rem; }
+h3 { font-size: 1.6rem; }
+h4 { font-size: 1.4rem; }
+h5 { font-size: 1.2rem; }
+h6 { font-size: 1rem; }
+.md-math-block, .md-rawblock, h1, h2, h3, h4, h5, h6, p { margin-top: 1rem; margin-bottom: 1rem; }
+.hidden { display: none; }
+.md-blockmeta { color: rgb(204, 204, 204); font-weight: 700; font-style: italic; }
+a { cursor: pointer; }
+sup.md-footnote { padding: 2px 4px; background-color: rgba(238, 238, 238, 0.7); color: rgb(85, 85, 85); border-radius: 4px; cursor: pointer; }
+sup.md-footnote a, sup.md-footnote a:hover { color: inherit; text-transform: inherit; text-decoration: inherit; }
+#write input[type="checkbox"] { cursor: pointer; width: inherit; height: inherit; }
+figure { overflow-x: auto; margin: 1.2em 0px; max-width: calc(100% + 16px); padding: 0px; }
+figure > table { margin: 0px; }
+tr { break-inside: avoid; break-after: auto; }
+thead { display: table-header-group; }
+table { border-collapse: collapse; border-spacing: 0px; width: 100%; overflow: auto; break-inside: auto; text-align: left; }
+table.md-table td { min-width: 32px; }
+.CodeMirror-gutters { border-right: 0px; background-color: inherit; }
+.CodeMirror-linenumber { user-select: none; }
+.CodeMirror { text-align: left; }
+.CodeMirror-placeholder { opacity: 0.3; }
+.CodeMirror pre { padding: 0px 4px; }
+.CodeMirror-lines { padding: 0px; }
+div.hr:focus { cursor: none; }
+#write pre { white-space: pre-wrap; }
+#write.fences-no-line-wrapping pre { white-space: pre; }
+#write pre.ty-contain-cm { white-space: normal; }
+.CodeMirror-gutters { margin-right: 4px; }
+.md-fences { font-size: 0.9rem; display: block; break-inside: avoid; text-align: left; overflow: visible; white-space: pre; background: inherit; position: relative !important; }
+.md-fences-adv-panel { width: 100%; margin-top: 10px; text-align: center; padding-top: 0px; padding-bottom: 8px; overflow-x: auto; }
+#write .md-fences.mock-cm { white-space: pre-wrap; }
+.md-fences.md-fences-with-lineno { padding-left: 0px; }
+#write.fences-no-line-wrapping .md-fences.mock-cm { white-space: pre; overflow-x: auto; }
+.md-fences.mock-cm.md-fences-with-lineno { padding-left: 8px; }
+.CodeMirror-line, twitterwidget { break-inside: avoid; }
+.footnotes { opacity: 0.8; font-size: 0.9rem; margin-top: 1em; margin-bottom: 1em; }
+.footnotes + .footnotes { margin-top: 0px; }
+.md-reset { margin: 0px; padding: 0px; border: 0px; outline: 0px; vertical-align: top; background: 0px 0px; text-decoration: none; text-shadow: none; float: none; position: static; width: auto; height: auto; white-space: nowrap; cursor: inherit; -webkit-tap-highlight-color: transparent; line-height: normal; font-weight: 400; text-align: left; box-sizing: content-box; direction: ltr; }
+li div { padding-top: 0px; }
+blockquote { margin: 1rem 0px; }
+li .mathjax-block, li p { margin: 0.5rem 0px; }
+li blockquote { margin: 1rem 0px; }
+li { margin: 0px; position: relative; }
+blockquote > :last-child { margin-bottom: 0px; }
+blockquote > :first-child, li > :first-child { margin-top: 0px; }
+.footnotes-area { color: rgb(136, 136, 136); margin-top: 0.714rem; padding-bottom: 0.143rem; white-space: normal; }
+#write .footnote-line { white-space: pre-wrap; }
+@media print {
+  body, html { border: 1px solid transparent; height: 99%; break-after: avoid; break-before: avoid; font-variant-ligatures: no-common-ligatures; }
+  #write { margin-top: 0px; padding-top: 0px; border-color: transparent !important; }
+  .typora-export * { -webkit-print-color-adjust: exact; }
+  .typora-export #write { break-after: avoid; }
+  .typora-export #write::after { height: 0px; }
+  .is-mac table { break-inside: avoid; }
+  .typora-export-show-outline .typora-export-sidebar { display: none; }
+}
+.footnote-line { margin-top: 0.714em; font-size: 0.7em; }
+a img, img a { cursor: pointer; }
+pre.md-meta-block { font-size: 0.8rem; min-height: 0.8rem; white-space: pre-wrap; background: rgb(204, 204, 204); display: block; overflow-x: hidden; }
+p > .md-image:only-child:not(.md-img-error) img, p > img:only-child { display: block; margin: auto; }
+#write.first-line-indent p > .md-image:only-child:not(.md-img-error) img { left: -2em; position: relative; }
+p > .md-image:only-child { display: inline-block; width: 100%; }
+#write .MathJax_Display { margin: 0.8em 0px 0px; }
+.md-math-block { width: 100%; }
+.md-math-block:not(:empty)::after { display: none; }
+.MathJax_ref { fill: currentcolor; }
+[contenteditable="true"]:active, [contenteditable="true"]:focus, [contenteditable="false"]:active, [contenteditable="false"]:focus { outline: 0px; box-shadow: none; }
+.md-task-list-item { position: relative; list-style-type: none; }
+.task-list-item.md-task-list-item { padding-left: 0px; }
+.md-task-list-item > input { position: absolute; top: 0px; left: 0px; margin-left: -1.2em; margin-top: calc(1em - 10px); border: none; }
+.math { font-size: 1rem; }
+.md-toc { min-height: 3.58rem; position: relative; font-size: 0.9rem; border-radius: 10px; }
+.md-toc-content { position: relative; margin-left: 0px; }
+.md-toc-content::after, .md-toc::after { display: none; }
+.md-toc-item { display: block; color: rgb(65, 131, 196); }
+.md-toc-item a { text-decoration: none; }
+.md-toc-inner:hover { text-decoration: underline; }
+.md-toc-inner { display: inline-block; cursor: pointer; }
+.md-toc-h1 .md-toc-inner { margin-left: 0px; font-weight: 700; }
+.md-toc-h2 .md-toc-inner { margin-left: 2em; }
+.md-toc-h3 .md-toc-inner { margin-left: 4em; }
+.md-toc-h4 .md-toc-inner { margin-left: 6em; }
+.md-toc-h5 .md-toc-inner { margin-left: 8em; }
+.md-toc-h6 .md-toc-inner { margin-left: 10em; }
+@media screen and (max-width: 48em) {
+  .md-toc-h3 .md-toc-inner { margin-left: 3.5em; }
+  .md-toc-h4 .md-toc-inner { margin-left: 5em; }
+  .md-toc-h5 .md-toc-inner { margin-left: 6.5em; }
+  .md-toc-h6 .md-toc-inner { margin-left: 8em; }
+}
+a.md-toc-inner { font-size: inherit; font-style: inherit; font-weight: inherit; line-height: inherit; }
+.footnote-line a:not(.reversefootnote) { color: inherit; }
+.md-attr { display: none; }
+.md-fn-count::after { content: "."; }
+code, pre, samp, tt { font-family: var(--monospace); }
+kbd { margin: 0px 0.1em; padding: 0.1em 0.6em; font-size: 0.8em; color: rgb(36, 39, 41); background: rgb(255, 255, 255); border: 1px solid rgb(173, 179, 185); border-radius: 3px; box-shadow: rgba(12, 13, 14, 0.2) 0px 1px 0px, rgb(255, 255, 255) 0px 0px 0px 2px inset; white-space: nowrap; vertical-align: middle; }
+.md-comment { color: rgb(162, 127, 3); opacity: 0.6; font-family: var(--monospace); }
+code { text-align: left; vertical-align: initial; }
+a.md-print-anchor { white-space: pre !important; border-width: initial !important; border-style: none !important; border-color: initial !important; display: inline-block !important; position: absolute !important; width: 1px !important; right: 0px !important; outline: 0px !important; background: 0px 0px !important; text-decoration: initial !important; text-shadow: initial !important; }
+.os-windows.monocolor-emoji .md-emoji { font-family: "Segoe UI Symbol", sans-serif; }
+.md-diagram-panel > svg { max-width: 100%; }
+[lang="flow"] svg, [lang="mermaid"] svg { max-width: 100%; height: auto; }
+[lang="mermaid"] .node text { font-size: 1rem; }
+table tr th { border-bottom: 0px; }
+video { max-width: 100%; display: block; margin: 0px auto; }
+iframe { max-width: 100%; width: 100%; border: none; }
+.highlight td, .highlight tr { border: 0px; }
+mark { background: rgb(255, 255, 0); color: rgb(0, 0, 0); }
+.md-html-inline .md-plain, .md-html-inline strong, mark .md-inline-math, mark strong { color: inherit; }
+.md-expand mark .md-meta { opacity: 0.3 !important; }
+mark .md-meta { color: rgb(0, 0, 0); }
+@media print {
+  .typora-export h1, .typora-export h2, .typora-export h3, .typora-export h4, .typora-export h5, .typora-export h6 { break-inside: avoid; }
+}
+.md-diagram-panel .messageText { stroke: none !important; }
+.md-diagram-panel .start-state { fill: var(--node-fill); }
+.md-diagram-panel .edgeLabel rect { opacity: 1 !important; }
+.md-fences.md-fences-math { font-size: 1em; }
+.md-fences-advanced:not(.md-focus) { padding: 0px; white-space: nowrap; border: 0px; }
+.md-fences-advanced:not(.md-focus) { background: inherit; }
+.typora-export-show-outline .typora-export-content { max-width: 1440px; margin: auto; display: flex; flex-direction: row; }
+.typora-export-sidebar { width: 300px; font-size: 0.8rem; margin-top: 80px; margin-right: 18px; }
+.typora-export-show-outline #write { --webkit-flex:2; flex: 2 1 0%; }
+.typora-export-sidebar .outline-content { position: fixed; top: 0px; max-height: 100%; overflow: hidden auto; padding-bottom: 30px; padding-top: 60px; width: 300px; }
+@media screen and (max-width: 1024px) {
+  .typora-export-sidebar, .typora-export-sidebar .outline-content { width: 240px; }
+}
+@media screen and (max-width: 800px) {
+  .typora-export-sidebar { display: none; }
+}
+.outline-content li, .outline-content ul { margin-left: 0px; margin-right: 0px; padding-left: 0px; padding-right: 0px; list-style: none; }
+.outline-content ul { margin-top: 0px; margin-bottom: 0px; }
+.outline-content strong { font-weight: 400; }
+.outline-expander { width: 1rem; height: 1.42857rem; position: relative; display: table-cell; vertical-align: middle; cursor: pointer; padding-left: 4px; }
+.outline-expander::before { content: ""; position: relative; font-family: Ionicons; display: inline-block; font-size: 8px; vertical-align: middle; }
+.outline-item { padding-top: 3px; padding-bottom: 3px; cursor: pointer; }
+.outline-expander:hover::before { content: ""; }
+.outline-h1 > .outline-item { padding-left: 0px; }
+.outline-h2 > .outline-item { padding-left: 1em; }
+.outline-h3 > .outline-item { padding-left: 2em; }
+.outline-h4 > .outline-item { padding-left: 3em; }
+.outline-h5 > .outline-item { padding-left: 4em; }
+.outline-h6 > .outline-item { padding-left: 5em; }
+.outline-label { cursor: pointer; display: table-cell; vertical-align: middle; text-decoration: none; color: inherit; }
+.outline-label:hover { text-decoration: underline; }
+.outline-item:hover { border-color: rgb(245, 245, 245); background-color: var(--item-hover-bg-color); }
+.outline-item:hover { margin-left: -28px; margin-right: -28px; border-left: 28px solid transparent; border-right: 28px solid transparent; }
+.outline-item-single .outline-expander::before, .outline-item-single .outline-expander:hover::before { display: none; }
+.outline-item-open > .outline-item > .outline-expander::before { content: ""; }
+.outline-children { display: none; }
+.info-panel-tab-wrapper { display: none; }
+.outline-item-open > .outline-children { display: block; }
+.typora-export .outline-item { padding-top: 1px; padding-bottom: 1px; }
+.typora-export .outline-item:hover { margin-right: -8px; border-right: 8px solid transparent; }
+.typora-export .outline-expander::before { content: "+"; font-family: inherit; top: -1px; }
+.typora-export .outline-expander:hover::before, .typora-export .outline-item-open > .outline-item > .outline-expander::before { content: "−"; }
+.typora-export-collapse-outline .outline-children { display: none; }
+.typora-export-collapse-outline .outline-item-open > .outline-children, .typora-export-no-collapse-outline .outline-children { display: block; }
+.typora-export-no-collapse-outline .outline-expander::before { content: "" !important; }
+.typora-export-show-outline .outline-item-active > .outline-item .outline-label { font-weight: 700; }
+.md-inline-math-container mjx-container { zoom: 0.95; }
+
+
+:root {
+    --side-bar-bg-color: #fafafa;
+    --control-text-color: #777;
+}
+
+@include-when-export url(https://fonts.loli.net/css?family=Open+Sans:400italic,700italic,700,400&subset=latin,latin-ext);
+
+/* open-sans-regular - latin-ext_latin */
+  /* open-sans-italic - latin-ext_latin */
+    /* open-sans-700 - latin-ext_latin */
+    /* open-sans-700italic - latin-ext_latin */
+  html {
+    font-size: 16px;
+    -webkit-font-smoothing: antialiased;
+}
+
+body {
+    font-family: "Open Sans","Clear Sans", "Helvetica Neue", Helvetica, Arial, 'Segoe UI Emoji', sans-serif;
+    color: rgb(51, 51, 51);
+    line-height: 1.6;
+}
+
+#write {
+    max-width: 860px;
+  	margin: 0 auto;
+  	padding: 30px;
+    padding-bottom: 100px;
+}
+
+@media only screen and (min-width: 1400px) {
+	#write {
+		max-width: 1024px;
+	}
+}
+
+@media only screen and (min-width: 1800px) {
+	#write {
+		max-width: 1200px;
+	}
+}
+
+#write > ul:first-child,
+#write > ol:first-child{
+    margin-top: 30px;
+}
+
+a {
+    color: #4183C4;
+}
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+    position: relative;
+    margin-top: 1rem;
+    margin-bottom: 1rem;
+    font-weight: bold;
+    line-height: 1.4;
+    cursor: text;
+}
+h1:hover a.anchor,
+h2:hover a.anchor,
+h3:hover a.anchor,
+h4:hover a.anchor,
+h5:hover a.anchor,
+h6:hover a.anchor {
+    text-decoration: none;
+}
+h1 tt,
+h1 code {
+    font-size: inherit;
+}
+h2 tt,
+h2 code {
+    font-size: inherit;
+}
+h3 tt,
+h3 code {
+    font-size: inherit;
+}
+h4 tt,
+h4 code {
+    font-size: inherit;
+}
+h5 tt,
+h5 code {
+    font-size: inherit;
+}
+h6 tt,
+h6 code {
+    font-size: inherit;
+}
+h1 {
+    font-size: 2.25em;
+    line-height: 1.2;
+    border-bottom: 1px solid #eee;
+}
+h2 {
+    font-size: 1.75em;
+    line-height: 1.225;
+    border-bottom: 1px solid #eee;
+}
+
+/*@media print {
+    .typora-export h1,
+    .typora-export h2 {
+        border-bottom: none;
+        padding-bottom: initial;
+    }
+
+    .typora-export h1::after,
+    .typora-export h2::after {
+        content: "";
+        display: block;
+        height: 100px;
+        margin-top: -96px;
+        border-top: 1px solid #eee;
+    }
+}*/
+
+h3 {
+    font-size: 1.5em;
+    line-height: 1.43;
+}
+h4 {
+    font-size: 1.25em;
+}
+h5 {
+    font-size: 1em;
+}
+h6 {
+   font-size: 1em;
+    color: #777;
+}
+p,
+blockquote,
+ul,
+ol,
+dl,
+table{
+    margin: 0.8em 0;
+}
+li>ol,
+li>ul {
+    margin: 0 0;
+}
+hr {
+    height: 2px;
+    padding: 0;
+    margin: 16px 0;
+    background-color: #e7e7e7;
+    border: 0 none;
+    overflow: hidden;
+    box-sizing: content-box;
+}
+
+li p.first {
+    display: inline-block;
+}
+ul,
+ol {
+    padding-left: 30px;
+}
+ul:first-child,
+ol:first-child {
+    margin-top: 0;
+}
+ul:last-child,
+ol:last-child {
+    margin-bottom: 0;
+}
+blockquote {
+    border-left: 4px solid #dfe2e5;
+    padding: 0 15px;
+    color: #777777;
+}
+blockquote blockquote {
+    padding-right: 0;
+}
+table {
+    padding: 0;
+    word-break: initial;
+}
+table tr {
+    border: 1px solid #dfe2e5;
+    margin: 0;
+    padding: 0;
+}
+table tr:nth-child(2n),
+thead {
+    background-color: #f8f8f8;
+}
+table th {
+    font-weight: bold;
+    border: 1px solid #dfe2e5;
+    border-bottom: 0;
+    margin: 0;
+    padding: 6px 13px;
+}
+table td {
+    border: 1px solid #dfe2e5;
+    margin: 0;
+    padding: 6px 13px;
+}
+table th:first-child,
+table td:first-child {
+    margin-top: 0;
+}
+table th:last-child,
+table td:last-child {
+    margin-bottom: 0;
+}
+
+.CodeMirror-lines {
+    padding-left: 4px;
+}
+
+.code-tooltip {
+    box-shadow: 0 1px 1px 0 rgba(0,28,36,.3);
+    border-top: 1px solid #eef2f2;
+}
+
+.md-fences,
+code,
+tt {
+    border: 1px solid #e7eaed;
+    background-color: #f8f8f8;
+    border-radius: 3px;
+    padding: 0;
+    padding: 2px 4px 0px 4px;
+    font-size: 0.9em;
+}
+
+code {
+    background-color: #f3f4f4;
+    padding: 0 2px 0 2px;
+}
+
+.md-fences {
+    margin-bottom: 15px;
+    margin-top: 15px;
+    padding-top: 8px;
+    padding-bottom: 6px;
+}
+
+
+.md-task-list-item > input {
+  margin-left: -1.3em;
+}
+
+@media print {
+    html {
+        font-size: 13px;
+    }
+    table,
+    pre {
+        page-break-inside: avoid;
+    }
+    pre {
+        word-wrap: break-word;
+    }
+}
+
+.md-fences {
+	background-color: #f8f8f8;
+}
+#write pre.md-meta-block {
+	padding: 1rem;
+    font-size: 85%;
+    line-height: 1.45;
+    background-color: #f7f7f7;
+    border: 0;
+    border-radius: 3px;
+    color: #777777;
+    margin-top: 0 !important;
+}
+
+.mathjax-block>.code-tooltip {
+	bottom: .375rem;
+}
+
+.md-mathjax-midline {
+    background: #fafafa;
+}
+
+#write>h3.md-focus:before{
+	left: -1.5625rem;
+	top: .375rem;
+}
+#write>h4.md-focus:before{
+	left: -1.5625rem;
+	top: .285714286rem;
+}
+#write>h5.md-focus:before{
+	left: -1.5625rem;
+	top: .285714286rem;
+}
+#write>h6.md-focus:before{
+	left: -1.5625rem;
+	top: .285714286rem;
+}
+.md-image>.md-meta {
+    /*border: 1px solid #ddd;*/
+    border-radius: 3px;
+    padding: 2px 0px 0px 4px;
+    font-size: 0.9em;
+    color: inherit;
+}
+
+.md-tag {
+    color: #a7a7a7;
+    opacity: 1;
+}
+
+.md-toc { 
+    margin-top:20px;
+    padding-bottom:20px;
+}
+
+.sidebar-tabs {
+    border-bottom: none;
+}
+
+#typora-quick-open {
+    border: 1px solid #ddd;
+    background-color: #f8f8f8;
+}
+
+#typora-quick-open-item {
+    background-color: #FAFAFA;
+    border-color: #FEFEFE #e5e5e5 #e5e5e5 #eee;
+    border-style: solid;
+    border-width: 1px;
+}
+
+/** focus mode */
+.on-focus-mode blockquote {
+    border-left-color: rgba(85, 85, 85, 0.12);
+}
+
+header, .context-menu, .megamenu-content, footer{
+    font-family: "Segoe UI", "Arial", sans-serif;
+}
+
+.file-node-content:hover .file-node-icon,
+.file-node-content:hover .file-node-open-state{
+    visibility: visible;
+}
+
+.mac-seamless-mode #typora-sidebar {
+    background-color: #fafafa;
+    background-color: var(--side-bar-bg-color);
+}
+
+.md-lang {
+    color: #b4654d;
+}
+
+/*.html-for-mac {
+    --item-hover-bg-color: #E6F0FE;
+}*/
+
+#md-notification .btn {
+    border: 0;
+}
+
+.dropdown-menu .divider {
+    border-color: #e5e5e5;
+    opacity: 0.4;
+}
+
+.ty-preferences .window-content {
+    background-color: #fafafa;
+}
+
+.ty-preferences .nav-group-item.active {
+    color: white;
+    background: #999;
+}
+
+.menu-item-container a.menu-style-btn {
+    background-color: #f5f8fa;
+    background-image: linear-gradient( 180deg , hsla(0, 0%, 100%, 0.8), hsla(0, 0%, 100%, 0)); 
+}
+
+
+
+</style><title>01-introduccion</title>
+</head>
+<body class='typora-export'><div class='typora-export-content'>
+<div id='write'  class=''><div class='md-toc' mdtype='toc'><p class="md-toc-content" role="list"><span role="listitem" class="md-toc-item md-toc-h1" data-ref="n2"><a class="md-toc-inner" href="#tema-01-introducción">Tema 01: Introducción</a></span><span role="listitem" class="md-toc-item md-toc-h2" data-ref="n4"><a class="md-toc-inner" href="#1-codificación">1. Codificación</a></span><span role="listitem" class="md-toc-item md-toc-h3" data-ref="n20"><a class="md-toc-inner" href="#11-información-numérica">1.1. Información Numérica</a></span><span role="listitem" class="md-toc-item md-toc-h3" data-ref="n137"><a class="md-toc-inner" href="#12-información-textual">1.2. Información Textual</a></span><span role="listitem" class="md-toc-item md-toc-h3" data-ref="n171"><a class="md-toc-inner" href="#13-imágenes">1.3. Imágenes</a></span><span role="listitem" class="md-toc-item md-toc-h2" data-ref="n175"><a class="md-toc-inner" href="#2-ordenador">2. Ordenador</a></span><span role="listitem" class="md-toc-item md-toc-h3" data-ref="n182"><a class="md-toc-inner" href="#21-arquitectura">2.1. Arquitectura</a></span><span role="listitem" class="md-toc-item md-toc-h4" data-ref="n185"><a class="md-toc-inner" href="#procesador">Procesador</a></span><span role="listitem" class="md-toc-item md-toc-h4" data-ref="n188"><a class="md-toc-inner" href="#memoria-principal">Memoria Principal</a></span><span role="listitem" class="md-toc-item md-toc-h4" data-ref="n190"><a class="md-toc-inner" href="#buses">Buses</a></span><span role="listitem" class="md-toc-item md-toc-h4" data-ref="n192"><a class="md-toc-inner" href="#controlador-gráfico">Controlador Gráfico</a></span><span role="listitem" class="md-toc-item md-toc-h4" data-ref="n201"><a class="md-toc-inner" href="#controlador-es">Controlador E/S</a></span><span role="listitem" class="md-toc-item md-toc-h4" data-ref="n203"><a class="md-toc-inner" href="#biosfirmware">BIOS/Firmware</a></span><span role="listitem" class="md-toc-item md-toc-h4" data-ref="n211"><a class="md-toc-inner" href="#almacenamiento">Almacenamiento</a></span><span role="listitem" class="md-toc-item md-toc-h3" data-ref="n222"><a class="md-toc-inner" href="#22-dispositivos-smart">2.2. Dispositivos Smart</a></span><span role="listitem" class="md-toc-item md-toc-h3" data-ref="n231"><a class="md-toc-inner" href="#23-móviles--tablets">2.3. Móviles &amp; Tablets</a></span><span role="listitem" class="md-toc-item md-toc-h2" data-ref="n234"><a class="md-toc-inner" href="#3-programación">3. Programación</a></span><span role="listitem" class="md-toc-item md-toc-h3" data-ref="n240"><a class="md-toc-inner" href="#31-clasificación-según-plataforma">3.1. Clasificación según Plataforma</a></span><span role="listitem" class="md-toc-item md-toc-h3" data-ref="n256"><a class="md-toc-inner" href="#32-clasificación-según-licencia">3.2. Clasificación Según licencia</a></span><span role="listitem" class="md-toc-item md-toc-h3" data-ref="n265"><a class="md-toc-inner" href="#33-clasificación-según-función">3.3. Clasificación según Función</a></span><span role="listitem" class="md-toc-item md-toc-h3" data-ref="n295"><a class="md-toc-inner" href="#33-ejemplos">3.3. Ejemplos</a></span><span role="listitem" class="md-toc-item md-toc-h2" data-ref="n330"><a class="md-toc-inner" href="#4-so">4. SO</a></span><span role="listitem" class="md-toc-item md-toc-h3" data-ref="n336"><a class="md-toc-inner" href="#41-kernel">4.1. Kernel</a></span><span role="listitem" class="md-toc-item md-toc-h4" data-ref="n338"><a class="md-toc-inner" href="#gestión-de-procesos">Gestión de Procesos</a></span><span role="listitem" class="md-toc-item md-toc-h4" data-ref="n341"><a class="md-toc-inner" href="#gestión-de-memoria">Gestión de Memoria</a></span><span role="listitem" class="md-toc-item md-toc-h4" data-ref="n343"><a class="md-toc-inner" href="#gestión-de-archivos">Gestión de Archivos</a></span><span role="listitem" class="md-toc-item md-toc-h4" data-ref="n345"><a class="md-toc-inner" href="#gestión-de-es">Gestión de E/S</a></span><span role="listitem" class="md-toc-item md-toc-h3" data-ref="n348"><a class="md-toc-inner" href="#42-servicios--librerías">4.2. Servicios &amp; Librerías</a></span><span role="listitem" class="md-toc-item md-toc-h3" data-ref="n352"><a class="md-toc-inner" href="#43-interfaz-gráfica">4.3. Interfaz gráfica</a></span><span role="listitem" class="md-toc-item md-toc-h3" data-ref="n355"><a class="md-toc-inner" href="#42-clasificación">4.2. Clasificación</a></span><span role="listitem" class="md-toc-item md-toc-h2" data-ref="n371"><a class="md-toc-inner" href="#🎲-ejercicios">🎲 Ejercicios</a></span><span role="listitem" class="md-toc-item md-toc-h2" data-ref="n380"><a class="md-toc-inner" href="#📕-bibliografía">📕 Bibliografía</a></span></p></div><h1 id='tema-01-introducción'><span>Tema 01: Introducción</span></h1><p>&nbsp;</p><h2 id='1-codificación'><span>1. Codificación</span></h2><p><span>Un ordenador es una máquina. Está compuesto de distintas piezas, las cuales continen una circuitería, chips, ranuras, ventiladores, condensadores... Gracias a estos componentes podemos usar programas que nos permiten trabajar con información. El interrogante es como un fichero de texto o una imágen es entendida por estas piezas. Necesitamos codificar la información para que sea entendidble por la máquina:</span></p><p><span>📖 </span><strong><span>Información</span></strong></p><blockquote><p><span>Conjunto de datos. Por ejemplo una imágen o un documento de texto.</span></p></blockquote><p><span>📖 </span><strong><span>Dato</span></strong></p><blockquote><p><span>Unidad mínima con un significado. Por ejemplo la palabra &quot;patata&quot; sería un dato y el documento dodne aparece &quot;información&quot;. En una imagen un pixel es un dato y la imagen información.</span></p></blockquote><p><span>📖 </span><strong><span>Codificar</span></strong></p><blockquote><p><span>Traducir una información a otra representación siguiendo las normas de un código. Se dá de forma bidireccional. Una foto puede traducirse en un conjunto de 0s y 1s, o éste plasmarse en una imágen por impresora o pantalla.</span></p></blockquote><p><span>A través de los circuitos pasan corrientes eléctricas. Estas usan una diferencia de voltaje que corresponde a 2 estados: el 0 y 1. Esto es lo que conocemos como código binario. Largas cadenas de ceros y unos codifican los programas y la información.El nombre de binario no es un capricho. &quot;Bi&quot; es un prefijo que significa &quot;dos&quot;, por tanto se llama bianrio por que solos e usan 2 cifras. </span></p><p><span>📖 </span><strong><span>Código Binario</span></strong></p><blockquote><p><span>Código que usa solo las cifras 1 y 0 para representar información</span></p></blockquote><p>&nbsp;</p><h3 id='11-información-numérica'><span>1.1. Información Numérica</span></h3><p><span>Existen otros códigos numñericos que dependen del numero de cifras usadas. En la siguientes tablas podemos ver una comparación:</span></p><figure><table><thead><tr><th><span>Codificación</span></th><th><span>Dígitos</span></th></tr></thead><tbody><tr><td><span>Decimal</span></td><td><span>0 - 1 - 2 - 3 - 4 - 5 - 6 - 7 - 8 - 9</span></td></tr><tr><td><span>Binaria</span></td><td><span>0 - 1</span></td></tr><tr><td><span>Octal</span></td><td><span>0 - 1 - 3 - 4 - 5 - 6 - 7</span></td></tr><tr><td><span>Hexadecimal</span></td><td><span>0 - 1 - 2 - 3 - 4 - 5 - 6 - 7 - 8 - 9 - A - B - C  - D - E - F</span></td></tr></tbody></table></figure><p>&nbsp;</p><figure><table><thead><tr><th style='text-align:right;' ><span>Decimal</span></th><th style='text-align:right;' ><span>Binario</span></th><th style='text-align:right;' ><span>Octal</span></th><th style='text-align:right;' ><span>Hexadecimal</span></th></tr></thead><tbody><tr><td style='text-align:right;' ><span>0</span></td><td style='text-align:right;' ><span>0</span></td><td style='text-align:right;' ><span>0</span></td><td style='text-align:right;' ><span>0</span></td></tr><tr><td style='text-align:right;' ><span>1</span></td><td style='text-align:right;' ><span>1</span></td><td style='text-align:right;' ><span>1</span></td><td style='text-align:right;' ><span>1</span></td></tr><tr><td style='text-align:right;' ><span>2</span></td><td style='text-align:right;' ><span>10</span></td><td style='text-align:right;' ><span>2</span></td><td style='text-align:right;' ><span>2</span></td></tr><tr><td style='text-align:right;' ><span>3</span></td><td style='text-align:right;' ><span>11</span></td><td style='text-align:right;' ><span>3</span></td><td style='text-align:right;' ><span>3</span></td></tr><tr><td style='text-align:right;' ><span>4</span></td><td style='text-align:right;' ><span>100</span></td><td style='text-align:right;' ><span>4</span></td><td style='text-align:right;' ><span>4</span></td></tr><tr><td style='text-align:right;' ><span>5</span></td><td style='text-align:right;' ><span>101</span></td><td style='text-align:right;' ><span>5</span></td><td style='text-align:right;' ><span>5</span></td></tr><tr><td style='text-align:right;' ><span>6</span></td><td style='text-align:right;' ><span>110</span></td><td style='text-align:right;' ><span>6</span></td><td style='text-align:right;' ><span>6</span></td></tr><tr><td style='text-align:right;' ><span>7</span></td><td style='text-align:right;' ><span>111</span></td><td style='text-align:right;' ><span>7</span></td><td style='text-align:right;' ><span>7</span></td></tr><tr><td style='text-align:right;' ><span>8</span></td><td style='text-align:right;' ><span>1000</span></td><td style='text-align:right;' ><span>10</span></td><td style='text-align:right;' ><span>8</span></td></tr><tr><td style='text-align:right;' ><span>9</span></td><td style='text-align:right;' ><span>1001</span></td><td style='text-align:right;' ><span>11</span></td><td style='text-align:right;' ><span>9</span></td></tr><tr><td style='text-align:right;' ><span>10</span></td><td style='text-align:right;' ><span>1010</span></td><td style='text-align:right;' ><span>12</span></td><td style='text-align:right;' ><span>A</span></td></tr><tr><td style='text-align:right;' ><span>11</span></td><td style='text-align:right;' ><span>1011</span></td><td style='text-align:right;' ><span>13</span></td><td style='text-align:right;' ><span>B</span></td></tr><tr><td style='text-align:right;' ><span>12</span></td><td style='text-align:right;' ><span>1100</span></td><td style='text-align:right;' ><span>14</span></td><td style='text-align:right;' ><span>C</span></td></tr><tr><td style='text-align:right;' ><span>13</span></td><td style='text-align:right;' ><span>1101</span></td><td style='text-align:right;' ><span>15</span></td><td style='text-align:right;' ><span>D</span></td></tr><tr><td style='text-align:right;' ><span>14</span></td><td style='text-align:right;' ><span>1110</span></td><td style='text-align:right;' ><span>16</span></td><td style='text-align:right;' ><span>E</span></td></tr><tr><td style='text-align:right;' ><span>15</span></td><td style='text-align:right;' ><span>1111</span></td><td style='text-align:right;' ><span>17</span></td><td style='text-align:right;' ><span>F</span></td></tr><tr><td style='text-align:right;' ><span>16</span></td><td style='text-align:right;' ><span>10000</span></td><td style='text-align:right;' ><span>20</span></td><td style='text-align:right;' ><span>10</span></td></tr></tbody></table></figure><p><span>¿Por qué tantas representaciones? La octal y hexadecimal se usan como codificaciones intermedias a la bianria. Resulta que cuando se trabaja a nivel de máquina es muy lioso ver por pantallas listas de ceros y unos. Usando representaciones hexadecimales o octales podemos simplificar el número de cifras. Un ejemplo son las direcciones de memoria, en la literatura de computadores siempre usan la notación hexadecimal.</span></p><p><span>⭐ </span><strong><span>Octomatics</span></strong></p><blockquote><p><span>Una autentica pasadas. Es una propuesta de traducir las matemñaticas actuales a un sistema octal. pero en vez de usar los digitos del 0 al 7 usan unos simbolos. No hace falta cálculos mentales o contar con los dedos, dependiendo de la operación se juntan visualmente las cifras y obtienes por magia el resultado. Mejor verlo en una imágen, es flipante. </span></p><p><img src="pics/octo-calc.gif" alt="octo-calc" style="zoom:150%;" /></p><p><span>Merece la pena echar un vistazo a la </span><a href='http://www.infoverse.org/octomatics/octomatics.htm'><span>web</span></a></p></blockquote><p>&nbsp;</p><h3 id='12-información-textual'><span>1.2. Información Textual</span></h3><p><span>En programación los textos son representados por carácteres. </span></p><p><span>📖 </span><strong><span>Carácter</span></strong></p><blockquote><p><span>Dato mínimo que hay en una representación textual. Pueden ser letras, números, simbolos o espacios.</span></p></blockquote><p><span>Podemos hacer que cada caracter le corresponda un código binario. La representación más famosa es la tabla ASCII. Usando 7 dígitos pueden representar 168 caracteres distintos.</span></p><p><img src="pics/ascii-table.png" referrerpolicy="no-referrer" alt="ascii-table"></p><p><span>Resumamos la tabla en grupos:</span></p><ul><li><p><strong><span>Letras</span></strong></p><ul><li><span>Minúsculas y mayúsculas. Solo las pertenecientes al alfabeto inglés. Nada de acentos, diéresis ni letras especiales como la ñ</span></li></ul></li><li><p><strong><span>Números</span></strong></p></li><li><p><strong><span>Símbolos</span></strong></p></li><li><p><strong><span>Espacios - tabuladores - retorno de carro</span></strong></p><ul><li><span>Son considerados caracteres. </span></li><li><span>Cuando un editor de textos se encuentra con ellos añade dichos espacios o efectos. </span></li><li><span>Es raro al principio, pero cuando practiques la programación parecerá de lo más natural.</span></li></ul></li><li><p><strong><span>Señales de Control</span></strong></p><ul><li><span>Están en desuso. </span></li><li><span>El código ASCII apareció en los años 60. Por aquel entonces la forma más amigable de tener un ordenador de escritorio era con terminales. Eran máquinas con pantalla y teclado que se conectaban a una enorme computadora (tan grandes que ocupaban varias habitaciones). No tenían capacidad de cálculo, enviaban la instrucciones e infromacion por teclado a la máquina central. Ésta devolvía el resultado o la confirmación. Para manejar esta comunciación usaban señales de control que son las que vemos en la tabla. </span></li></ul></li></ul><h3 id='13-imágenes'><span>1.3. Imágenes</span></h3><p><span>¿Te suenan los píxeles? resulta que las imágenes están compuestas por una rejilla de cuadritos. Cada uno de ellos son llamados píxeles. Incluyen 3 números que representan la intensidad del rojo, verde y azul (RGB). Los números son del 0 al 255. Al mezclarse crean el color del cuadrito. </span></p><p><img src="/home/ladysun/notes/uned/sistema-operativos-redes/pics/bitmap.png" referrerpolicy="no-referrer" alt="bitmap"></p><p>&nbsp;</p><h2 id='2-ordenador'><span>2. Ordenador</span></h2><p><span>Antes de adentrarnos en la arquitectura aprendamos la definición correcta</span></p><p><span>📖 </span><strong><span>Ordenador</span></strong></p><blockquote><p><span>Máquina principalmente electrónica. Permite crear y procesar información a través de programas. Éstos usan unos datos de entrada y los transforman en una salida. Por ejemplo la entrada sería las pulsaciones de teclado, mientras que la salida el fichero guardado que vemos por pantalla. </span></p></blockquote><p><span>Los programas forman la parte lógica llamada software, mientras que las piezas son la parte física o hardware. El SW y el HW son interdependientes, una no puede funcionar sin la otra.  </span></p><p>&nbsp;</p><h3 id='21-arquitectura'><span>2.1. Arquitectura</span></h3><p><span>Vamos a explicar a grandes rasgos la arquitectura de un equipo. Si nos ponemos en detalle necesitamos varios temas. Al menos lo fundamental para trabjar con los Sistema Operativos. El siguiente diagrama muestra la arquitectura de un equipo:</span></p><p>&nbsp;</p><h4 id='procesador'><span>Procesador</span></h4><p><span>Al final cualquier trabajo que hagas en un ordenador se traduce en una serie de operaciones. Desde escribir un documento hasta mover el ratón. Todo se traduce en operaciones elementales llamadas instrucciones: sumas, restas, desplazamiento de datos, operaciones lógicas... lo que pasa es que se realizan millones por milisegundo. Todas ellas son calculadas por el procesador. </span></p><p><span>Desde hace varias décadas el procesador inclye varios núcleos. Estos son unidades de procesamiento independientes. Permite procesar en paralelo instrucciones.</span></p><h4 id='memoria-principal'><span>Memoria Principal</span></h4><p><span>Donde guarda la información y las partes de los programas que está usando en el momento. El procesador trae pequeñas porciones para operar con ellas. Como habrás podido darte cuenta un disco duro tiene mucha más capacidad. Hay aplicaciones como videojuegos cuyo tamaño superan a la memoria. Lo que ocurre es que solo cargan la parte que necesitan. Lo mismo ocurre con datos más grandes como por ejemplo modelos 3D o videos 4K.</span></p><h4 id='buses'><span>Buses</span></h4><p><span>Serían todos esos caminitos que ves en la circuitería. Aquellos que interconectan la CPU, la memoria principal, las ranuras de expansión y demás componentes de E/S. Estos caminos no se conectan directamente, entre medias tenemos al chipset y controladores de E/S gestionando la comunicación.</span></p><h4 id='controlador-gráfico'><span>Controlador Gráfico</span></h4><p><span>Resulta que con el paso del tiempo las exigencias gráficas han ido en aumento. Requiriendo un &quot;mini&quot; ordenador que se dedique al apartado gráfico. Tienen su propia CPU llamada GPU y una memoría exclusiva. Pueden presentarse de las siguientes formas:</span></p><ul><li><u><span>Tarjeta de Expansión Independiente</span></u><span>: La opción que permite obtener la mayor potencia posible. En la actualidad son conectadas a una ranura PCIe o PLX. Permiten un rendimiento desde medio, alto o colosal. Si eres gamer, editor de video o imágen experimentado, o desarrollador de gráficos 3D profesional, es la opción deseable. También pueden usarse para minar criptodivisas, ya que las operaciones criptográficas necesarias necesitan una gran capacidad de computo. Todos los usos listados tienen como contrapartida el gran consumo electrico. Algunos usuarios incluso ocupan 2 ranuras PCIe con gráficas. A su vez éstas se interconectan con tecnologías SLI o NVLink. </span></li><li><u><span>Soldado a la Placa</span></u><span>: Pensado para ordenadores portátiles que requieran un rendimiento medio-alto gráfico. Hay personas que viajan o llevan sus equipos al entorno de trabajo. Incluso prefieren tomarse un café o una cerveza teniendo su portatil en la mesa (yo lo he hecho y es muy agardable). Por tanto no importa sacrificar algo de potencia para obteenr portabilidad. Pueden presentar gran potencia, pero estos modelos no llegan al máximo rendimiento. Incluso si encontrásemos una bestia no merecería la pena comprar dicho portatil. El precio sería tan elevado que no compensa.</span></li><li><u><span>Integrado en el Propio Procesador</span></u><span>: Son pequeños controladores gráficos dentro de la CPU. Esto no sería posible sin los grandes avances de la miniaturización. están pensados para ordenadores portátiles que requieran unr endimiento bajo-medio. Podrás jugar a juegos pero de hace 3 o 4 años con los specs bajados. Normalmente allados en portatiles económicos.</span></li></ul><h4 id='controlador-es'><span>Controlador E/S</span></h4><p><span>Chips integrados que gestionan un conjunto de comunicaciones procedentes de interfaces de E/S, como puertos USB o conexiones SATA.</span></p><h4 id='biosfirmware'><span>BIOS/Firmware</span></h4><p><span>Son pequeños programas dentro de circuitos integrados. Con ellos podemos hacer lo siguiente:</span></p><ul><li><u><span>Arrancar el Equipo</span></u><span>: Cuando encendemos el equipo el control lo toma el programa de arranque del firmware. Primero hace un chuqueo de los componentes (memoria, video, chipsets...). Si hay algún error lo muestra por pantalla o emite un código de pitidos. Luego busca el SO en el disco duro para que se ejecute. Al final el SO toma el control y prepara todo el sistema para el usuario. También puede suceder que no haya SO y el firmware ayude a su instalación a través de un USB o unidad óptica.</span></li><li><u><span>Configuración y Monitorización</span></u><span>: Podemos acceder a un panel de monitorización para ver la temperatura, hora del sistema, caracteristicas de componentes, etc. También </span></li></ul><p><span>Son una pieza bastante crítica. Una mala manipulación de su programa supone su avería, por tanto la inutilidad y finalmente tirar a la basura la placa. Como son circuitos integrados soldados, no podemos arreglarlos (a no ser que seas un genio y recicles una BIOS de otra placa). </span></p><h4 id='almacenamiento'><span>Almacenamiento</span></h4><p><span>Donde guardamos la información y los programas, si van a usarse por el sistema se traslada a la memoria principal. Si el procesador tuviera que acceder directamente a los datos en disco sería muy lento. ¿Por qué no lo arreglamos con una memoria principal de 1Tb? sería carísimo. Cuanta más rápida sea la memoria más cara es, de ahí que las caches y RAM tenga menor capacidad. En la vida real el procesador no va atrabajar en ese mismo instante con todo lo que tengas almacenado en disco. </span></p><p><span>Pueden presentarse se varias formas:</span></p><ul><li><u><span>SATA</span></u><span>: Dispositivos de cierto tamaño conectados a interfaces SATA. Es la forma más común. Pueen ser HDD o SSD</span></li><li><u><span>PCIe</span></u><span>: SSD en un pequeño circuito integrado que se conecta a un zócalo de la placa. Encontrados sobretodo en portátiles.</span></li><li><u><span>Externos</span></u><span>: SDD o HDD conectados desde fuera del ordenador por medio de inetrfaz USB. Puedes comprar uno integrado en una caja con la inetrfaz USB. Tambiñen la caja con la interfaz USB para meter el disco que quieras.</span></li></ul><p>&nbsp;</p><h3 id='22-dispositivos-smart'><span>2.2. Dispositivos Smart</span></h3><p><span>Smarthome, smartwear, electrodomesticos, consolas, smartTV.... En ellos podemos apreciar la siguiente arquitectura:</span></p><ul><li><u><span>Chip firmware con pequeña circuitería</span></u><span>.</span></li><li><u><span>Pequeño ordenador</span></u><span>: Con memoria principal e interfaces de E/S.</span></li></ul><p><span>Este firmware puede alojar programas completos. Por ejemplo un smartband con su medidor de frecuencia cardiaca y sistema de notificaciones. Otro caso son los smartTV que incluyen un cliente de Yuutube o Netflix.</span></p><p>&nbsp;</p><h3 id='23-móviles--tablets'><span>2.3. Móviles &amp; Tablets</span></h3><p><span>Tienen el mismo esquema que un ordenador, pero se estructuran distinto. En un único chip se embeben una buena parte de los componentes que hemos visto anteriormente. Esto es debido al pequeño tamaño y ahorro de consumo energético.</span></p><p>&nbsp;</p><h2 id='3-programación'><span>3. Programación</span></h2><p><span>Todo este amasijo de circuitos, chips y demás componentes no sirven por si mismos. Los programas ayudan al usuario ha hacer sus tareas o disfrutar del ocio. Pero esto no quiere decir que el SW sea mejor que el HW, son interdependientes. La cuestión es que los profesionales por gusto nos inclinamos hacia un lado u otro en su conocimiento.</span></p><p><span>📖 </span><strong><span>Programa</span></strong></p><blockquote><p><span>Secuencia ordenada de instrucciones para ejecutar tareas. Aceptan una o varios datos de entrada para generar un resultado o salida.</span></p></blockquote><p>&nbsp;</p><h3 id='31-clasificación-según-plataforma'><span>3.1. Clasificación según Plataforma</span></h3><p><span>Dependiendo de que plataforma o dispositivo donde se use.</span></p><ul><li><strong><span>Desktop</span></strong><span>: Se ejecutan en un ordenador de sobremesa o portatil. Funcionan sobre un sistema operativo que puede ser Windows, Linux o Mac. Pueden ser autosuficientes o conectarse a una red internet o a Internet.</span></li><li><strong><span>Aplicaciones web</span></strong><span>: Necesitas un navegador web para su ejecución. Éstos estan tanto en un ordenador o en un móvil.</span></li><li><strong><span>Aplicaciones movi</span></strong><span>l: Aquellas que se ejecutan en un dispositivo móvil. Funcionan sobre un sistema operatico que puede ser Android o IOS.</span></li><li><strong><span>Firmwares</span></strong><span>: Pueden haber programas que estén integrados en una pequeña memoria dentro de un microchip. Puede ser de una lavadora o tu smartband.</span></li><li><strong><span>SmartTV</span></strong><span>: Cada vez los televisores van adquiriendo más funciones a parte de mostrarte Netflix o o Youtube. Incluso algunos permiten descarga de aplicaciones.</span></li><li><strong><span>Consolas</span></strong><span>: Nintendo, PlayStation o Microsoft disponen de centros para descargar y gestionar tu catalogo de videojuegos. Incluso algunos genios se las han arreglado para instalar homebrew en la propia consola.</span></li></ul><p>&nbsp;</p><h3 id='32-clasificación-según-licencia'><span>3.2. Clasificación Según licencia</span></h3><ul><li><p><strong><span>Privativo</span></strong><span>: El código fuente no está publicado. Solo es visible por parte de los integrantes del proyecto. </span></p></li><li><p><strong><span>Libre</span></strong><span>: El código está público, puede verlo cualquiera. Personas ajenas al proyecto pueden acceder a él. Debe también cumplir las condiciones de libre uso, estudio, distribución de copias y creación de mejoras. De no ser así sería solo Open Source.</span></p><p><span>Aquellos que programan de esta forma lo consideran como una filosofía. Esto es debido a que hubo un tiempo donde se compartía todo programa que se creaba, era inconcebible su comercialización. Habían comunidades donde se compartía y aprendía. Al final por intereses económicos cada vez más empresas no hicían público sus códigos fuente. </span></p><p><span>Dentro de esta modalidad hay distintos modos de licenciamiento. Por ejemplo algunos te permiten usar el código en un producto comercial propio, mientras que otros solo puede ser usado el codigo libre en otro programa libre.</span></p></li></ul><p>&nbsp;</p><h3 id='33-clasificación-según-función'><span>3.3. Clasificación según Función</span></h3><p><span>Depende del tipo de servicios o función que tenga. Están en constante cambio. Algunas clasificaciones no son oficiales, sino fruto de como los medios y la sociedad suelen describirlos.</span></p><ul><li><p><strong><span>SO</span></strong><span>: Sirven para gestionar el hardware y ejecutar programas.</span></p></li><li><p><strong><span>Ofimáticos</span></strong><span>: Para la realización de tareas administrativas y de gestión. Por ejemplo editores de texto, hojas de cálculo, presentaciones...</span></p></li><li><p><strong><span>Antimalware</span></strong><span>: estos programas detectan y eliminan el malware de un equipo. Antaño se denominaban antivirus, pero debido a la variedad de los tipsod e atacantes (spyware, troyanos, ) se agruparon todos bajo el nombre de malware.</span></p></li><li><p><strong><span>Retoque de Imágen</span></strong><span>: El más famoso es el Adobe Photoshop pero también tenemos GIMP de software libre. Aunque Photoshop tenga filtros muy potentes, GIMP no se queda corto con su repertorio de herramientas.</span></p></li><li><p><strong><span>Creación de gráficos</span></strong><span>: Muchos de los programas de retoque tienen pequeñas herramientas para gráficos. Pero la creaciónd e gráficos implica elaborar imñagenes vectoriales. El más famoso es Adobe Illustrator, pero tenemos también la alternativa libre InkScape. </span></p></li><li><p><strong><span>Edición de Video</span></strong></p></li><li><p><strong><span>Videojuegos</span></strong><span>: LOL, Fortnite, Tetris, Diablo, Pokémon, Mario, Sonic, Plant Vs Zombies, Subway Surfers... </span></p></li><li><p><strong><span>Multimedia</span></strong><span>: Reproductores de video y audio, grabación, capturadores...</span></p></li><li><p><strong><span>Herramientas</span></strong><span>: Chequeo del sistema, limpieza de archivos, medidores de rendimeinto...</span></p></li><li><p><strong><span>Social Media</span></strong><span>: Meta, Twitter, Tiktok, Pinterest, Flickr...</span></p></li><li><p><strong><span>Mensajería</span></strong><span>: Whatsapp, Telegram, Line, Slack...</span></p></li><li><p><strong><span>Videoconferencia</span></strong><span>: Skype, Zoom, Teams...</span></p></li><li><p><strong><span>Wikis</span></strong><span>: Todas las aplicaciones que funcionan a modo de enciclopedia colaborativa. Por ejemplo Wikipedia o Wikifandom.</span></p><p>&nbsp;</p></li></ul><h3 id='33-ejemplos'><span>3.3. Ejemplos</span></h3><figure><table><thead><tr><th><span>Programa</span></th><th><span>Plataforma</span></th><th><span>Función</span></th></tr></thead><tbody><tr><td><span>Photoshop</span></td><td><span>Desktop</span></td><td><span>Retoque imágen</span></td></tr><tr><td><span>Google Docs</span></td><td><span>App Web</span></td><td><span>Ofimática</span></td></tr><tr><td><span>Facebook</span></td><td><span>App Web/Móvil</span></td><td><span>Social Media</span></td></tr><tr><td><span>Leage of Legends</span></td><td><span>Desktop</span></td><td><span>Videojuegos</span></td></tr><tr><td><span>Tinder</span></td><td><span>App Móvil</span></td><td><span>Social Media/Contactos</span></td></tr><tr><td><span>NetFlix</span></td><td><span>App web/móvil/smart tv</span></td><td><span>Multimedia</span></td></tr><tr><td><span>The Witcher</span></td><td><span>Desktop</span></td><td><span>Videjuego</span></td></tr></tbody></table></figure><p>&nbsp;</p><h2 id='4-so'><span>4. SO</span></h2><p><span>Por fin hemos llegado al rey de este tema. Estos apuntes forman parte de un curso de administración y mantenimiento de sistemas. Por tanto es bastante importante saber que es un SO y como funciona.</span></p><p><span>📖 </span><strong><span>Sistema Operativo</span></strong></p><blockquote><p><span>Software que controla y gestiona los recursos hardware. Hace de intermediario sobre éstos a través de un conjunto de servicios. Gracias a ellos el software puede instalarse y ejecutarse.  </span></p></blockquote><p>&nbsp;</p><h3 id='41-kernel'><span>4.1. Kernel</span></h3><p><span>Es la parte del sistema operativo que permanece permanentemente en la memoria principal. </span></p><h4 id='gestión-de-procesos'><span>Gestión de Procesos</span></h4><p><span>Un programa al ejecutarse puede supone la creación de uno o varios procesos. Cada uno ejecuta un programa. Cada nucleo del procesador solo puede realizar una tarea en un momento dado. Para aparentar que trabaja en paralelo se distribuye el tiempo de procesamiento entre lso procesos.</span></p><p><span>Esta parte del SO crea, para, renauda o finaliza los procesos. También los asigna la prioridad y proporciona sistemas de comunicación entre ellos.</span></p><h4 id='gestión-de-memoria'><span>Gestión de Memoria</span></h4><p><span>Sabe que zonas de la memoria están ocupadas o por quien. Decide que procesos se cargan en memoria. Si no está cargado en memoria el procesador no puede ejecutar el proceso. Tendrá que traer la información del disco duro. Por tanto es importante una buena planificación en el uso de este recurso.</span></p><h4 id='gestión-de-archivos'><span>Gestión de Archivos</span></h4><p><span>Asigna espacio a ficheros en el disco duro. Supervisa el espacio libre y ocupado. También los accesos y permisos.</span></p><h4 id='gestión-de-es'><span>Gestión de E/S</span></h4><p><span>Los programas pueden competir por el acceso a disco, red o dispositivos conectados. El SO actúa como arbitro. Puede suceder que uno de estos dispositivos haya terminado su tarea y tenga que comunicarse. Manda una señal de interrupción a la CPU y está usa el gestor del SO para arbitrarla.</span></p><p>&nbsp;</p><h3 id='42-servicios--librerías'><span>4.2. Servicios &amp; Librerías</span></h3><p><span>Los usuarios interactúan con el sistema operativo a través de servicios. Por ejejmplo el servicios de actualizaciones o el task manager de Windows. </span></p><p><span>En cambio los programadores hacen uso de servicios de bajo nivel. Los SO proporcionan librerías para acceder a ellos. Incluso el propio lenguaje ofrece librerías que a su vez acceden a las librerías de los SO.</span></p><p>&nbsp;</p><h3 id='43-interfaz-gráfica'><span>4.3. Interfaz gráfica</span></h3><p><span>Podemos usar un SO a tarvés de una consola de comandos o con una interfaz gráfica. Ésta contiene un escritorio, ventanas y menus de acceso a aplicaciones y configuraciones.</span></p><p>&nbsp;</p><h3 id='42-clasificación'><span>4.2. Clasificación</span></h3><p><span>Según el número de usuarios que lo esté utilizando.</span></p><ul><li><u><span>Monousuario</span></u><span>: Solo un usuario simultaneo.</span></li><li><u><span>Multiusuario</span></u><span>: Varios usuarios simultaneos. Pensado más en un entorno de servidores.</span></li></ul><p><span>Tambien está la clasificación según la cantiad de tareas ejecutándose.</span></p><ul><li><u><span>Monotarea</span></u><span>: Solo puede ejecutar una aplicación a la vez.</span></li><li><u><span>Multitarea</span></u><span>: Pueden ejecutarse diversas aplicaciones ala vez.</span></li></ul><p>&nbsp;</p><hr /><p>&nbsp;</p><h2 id='🎲-ejercicios'><span>🎲 Ejercicios</span></h2><ul><li><a href='https://pregunta2.com/quiz/40ddc0e1'><span>Test de repaso 1</span></a></li><li><a href='https://pregunta2.com/quiz/a36c0689'><span>Test de repaso 2</span></a></li><li><span>Busca información de distintas distribuciones de Linux. Incluye algunas de sus características. Una vez terminado envíalo al buzón de entrega asignado</span></li></ul><p>&nbsp;</p><h2 id='📕-bibliografía'><span>📕 Bibliografía</span></h2><ul><li><span>Página sobre &quot;Octomatics&quot;</span>
+<a href='http://www.infoverse.org/octomatics/octomatics.htm' target='_blank' class='url'>http://www.infoverse.org/octomatics/octomatics.htm</a></li><li><span>Entrada Wikipedia &quot;ASCII&quot;</span>
+<a href='https://es.wikipedia.org/wiki/ASCII' target='_blank' class='url'>https://es.wikipedia.org/wiki/ASCII</a></li><li><span>Artículo &quot;Placas base – Toda la información que necesitas saber&quot;</span>
+<a href='https://www.profesionalreview.com/placas-base-motherboard/' target='_blank' class='url'>https://www.profesionalreview.com/placas-base-motherboard/</a></li><li><span>Artículo &quot;PCIe, SATA, USB: Cuáles son los diferentes buses de datos de un PC&quot;</span>
+<a href='https://hardzone.es/reportajes/que-es/bus-datos-pc-cuales/' target='_blank' class='url'>https://hardzone.es/reportajes/que-es/bus-datos-pc-cuales/</a></li><li><span>Redhat - ¿Qué es el kernel de Linux?</span>
+<a href='https://www.redhat.com/es/topics/linux/what-is-the-linux-kernel' target='_blank' class='url'>https://www.redhat.com/es/topics/linux/what-is-the-linux-kernel</a></li><li><span>Artículo &quot;Historia y todo lo que debes saber sobre un sistema operativo&quot;</span>
+<a href='https://www.adslzone.net/reportajes/software/que-es-sistema-operativo/' target='_blank' class='url'>https://www.adslzone.net/reportajes/software/que-es-sistema-operativo/</a></li><li><span>Apuntes de Sistemas Operativos Tema 1</span>
+<a href='https://www.infor.uva.es/~fjgonzalez/apuntes/Tema_1_Introduccion.pdf' target='_blank' class='url'>https://www.infor.uva.es/~fjgonzalez/apuntes/Tema_1_Introduccion.pdf</a></li><li><span>Artóculo &quot;¿Qué es el Kernel y para qué sirve?&quot;</span>
+<a href='https://www.geeknetic.es/Kernel/que-es-y-para-que-sirve' target='_blank' class='url'>https://www.geeknetic.es/Kernel/que-es-y-para-que-sirve</a></li></ul><p>&nbsp;</p></div></div>
+</body>
+</html>
