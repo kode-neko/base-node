@@ -9,15 +9,16 @@ const i18next_1 = __importDefault(require("i18next"));
 const i18next_http_middleware_1 = __importDefault(require("i18next-http-middleware"));
 const hbs_1 = __importDefault(require("hbs"));
 const routes_1 = require("./routes");
-const i18nextHelper_1 = __importDefault(require("./utils/hbs/i18nextHelper"));
+const utils_1 = require("./utils");
 const app = (0, express_1.default)();
 // json body
 app.use(express_1.default.json());
 // template
 hbs_1.default.registerPartials(path_1.default.join(__dirname, '../views/partials'));
+hbs_1.default.registerHelper('t', utils_1.i18NextHelper);
+hbs_1.default.registerHelper('urlSet', utils_1.urlSetHelper);
 app.set('view engine', 'hbs');
 app.set('views', path_1.default.join(__dirname, '../views'));
-hbs_1.default.registerHelper('t', i18nextHelper_1.default);
 // i18n
 app.use(i18next_http_middleware_1.default.handle(i18next_1.default, {}));
 // assets
@@ -26,5 +27,5 @@ app.use('/assets/bootstrap-icons/css', express_1.default.static(path_1.default.j
 app.use('/assets/bootstrap/js', express_1.default.static(path_1.default.join(__dirname, '../../node_modules/bootstrap/dist/js')));
 app.use('/assets/pics', express_1.default.static(path_1.default.join(__dirname, '../assets/pics')));
 // routes
-app.use('/example', routes_1.exampleRouer);
+app.use('/', routes_1.exampleRouter);
 exports.default = app;

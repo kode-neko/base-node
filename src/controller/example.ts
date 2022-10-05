@@ -1,4 +1,3 @@
-import i18next from 'i18next';
 import { Request, Response } from 'express';
 import { IExample } from '../model/example';
 
@@ -7,22 +6,17 @@ function getExample(req: Request, res: Response): void {
   res.status(200).json(example);
 }
 
-function getChangeLang(req: Request, res: Response): void {
-  const { lang } = req.query;
-  i18next.changeLanguage(lang as string).then(() => res.redirect('/example/tpl'));
-}
-
-function getTemplate(req: Request, res: Response): void {
+function getMain(req: Request, res: Response): void {
   res.render('main', { title: 'titulo', content: 'contenido' });
 }
 
-function getSubject(req: Request, res: Response): void {
-  res.render('subject');
+function getSection(req: Request, res: Response): void {
+  const elements = [{ name: 'ele01', url: '/' }, { name: 'ele01', url: '/' }, { name: 'ele01', url: '/' }];
+  res.render('section', { elements });
 }
 
 export {
   getExample,
-  getChangeLang,
-  getTemplate,
-  getSubject,
+  getMain,
+  getSection,
 };

@@ -1,21 +1,18 @@
 {
     "title": {
-        "main": "Computer Notes",
-        "dev": "Instroduction to Development",
-        "admin": "Linux Administration"
+        "main": "Quis sunt nostrud",
+        "section01": "Elit eiusmod",
+        "section02": "Occaecat deserunt"
     },
     "desc": {
         "title": "Welcome!",
-        "main": "I'm Kodeneko, computer enginering skilled in frontal web development. I'm finishing a Master of Teaching to become an instructor in a tech college. In this web I want to publish some topics which I created during my master.",
-        "dev": "Encontrarás presentaciones y apuntes para la introducción en la programación",
-        "admin": "Descubrirás una seríe de presentaciones y manuales para una introducción básica para Linux"
-    },
-    "btn": {
-        "change-lang": "Language"
+        "body": "Sit mollit et ea duis id Lorem duis. Laboris mollit Lorem ea aliqua id Lorem ex eu excepteur laborum consequat. In sunt fugiat ad ea in elit. Ullamco incididunt nisi ullamco est.",
+        "section01": "Elit ut sint proident officia laborum laborum ullamco est eiusmod adipisicing. Elit pariatur esse labore dolor. Do Lorem irure proident tempor exercitation aute. Ex excepteur aute duis occaecat do et nisi irure duis.",
+        "section02": "Nostrud quis consequat esse duis mollit ea duis culpa. Aliqua veniam non eu excepteur incididunt do amet commodo anim occaecat proident. Elit id cillum quis quis nisi deserunt officia laboris pariatur adipisicing veniam. Dolor non minim mollit cillum dolor cupidatat excepteur incididunt labore non reprehenderit officia sit. Culpa aliqua aute excepteur enim enim laborum mollit ad exercitation."
     },
     "labels": {
-        "english": "English",
-        "spanish": "Spanish",
-        "enter": "Enter"
-    }
+        "enter": "Enter",
+        "example": "Aliquip consequat"
+    },
+    "credits": "Autor - 2022"
 }

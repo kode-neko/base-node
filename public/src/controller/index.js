@@ -1,8 +1,7 @@
 "use strict";
 Object.defineProperty(exports, "__esModule", { value: true });
-exports.getSubject = exports.getTemplate = exports.getChangeLang = exports.getExample = void 0;
+exports.getSection = exports.getMain = exports.getExample = void 0;
 var example_1 = require("./example");
 Object.defineProperty(exports, "getExample", { enumerable: true, get: function () { return example_1.getExample; } });
-Object.defineProperty(exports, "getChangeLang", { enumerable: true, get: function () { return example_1.getChangeLang; } });
-Object.defineProperty(exports, "getTemplate", { enumerable: true, get: function () { return example_1.getTemplate; } });
-Object.defineProperty(exports, "getSubject", { enumerable: true, get: function () { return example_1.getSubject; } });
+Object.defineProperty(exports, "getMain", { enumerable: true, get: function () { return example_1.getMain; } });
+Object.defineProperty(exports, "getSection", { enumerable: true, get: function () { return example_1.getSection; } });

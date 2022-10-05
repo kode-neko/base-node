@@ -1,13 +1,12 @@
 import { Router } from 'express';
 import {
-  getExample, getChangeLang, getTemplate, getSubject,
+  getExample, getMain, getSection,
 } from '../controller';
 
 const router = Router();
 
 router.get('/', getExample);
-router.get('/changeLang', getChangeLang);
-router.get('/tpl', getTemplate);
-router.get('/dev', getSubject);
+router.get('/main', getMain);
+router.get('/section', getSection);
 
 export default router;

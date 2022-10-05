@@ -1,0 +1,35 @@
+{{#> frame}}
+
+<div class="row my-3 fs-4">
+  <div class="col-12">
+    <nav aria-label="breadcrumb">
+      <ol class="breadcrumb">
+        <li class="breadcrumb-item"><a href="#">Home</a></li>
+        <li class="breadcrumb-item active" aria-current="page">Ejemplo</li>
+      </ol>
+    </nav>
+  </div>
+</div>
+
+<div class="row mb-3">
+    <div class="col-12">
+    <h2>Ejemplo</h2>
+  </div>
+</div>
+
+<div class="row">
+  <div class="col-lg-6 mb-3">
+    <h3><i class="bi bi-file-earmark-text me-2"></i>{{t "label.example"}}</h3>
+    <figure class="figure">
+      <img src="/assets/pics/cat.jpg" style="height: 500px;" class="figure-img img-fluid rounded" alt="...">
+      <figcaption class="figure-caption">A caption for the above image.</figcaption>
+    </figure>
+    <ul class="list-group rounded-2">
+      {{#each elements}}
+        <a href="{{url}}"><li class="list-group-item list-group-item-action list-group-item-primary">{{name}}/li></a>
+      {{/each}}
+    </ul>
+  </div>
+</div>
+
+{{/frame}}
